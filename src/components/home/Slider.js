@@ -1,0 +1,74 @@
+import React from 'react'
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import {Divider} from "@mui/material";
+import {products} from "./ProductData"
+
+const responsive = {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 5
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1
+    }
+  };
+function Slider() {
+  return (
+    <div className=' py-4  border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4'>
+        <div className="flex justify-between py-4 px-2">
+            <h3 className='font-bold text-xl'>Deal of the day</h3>
+            <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'> View All </button>
+        </div>
+        <Divider/>
+        <Carousel
+  centerMode={true}
+  swipeable={true}
+  draggable={false}
+  showDots={false}
+  responsive={responsive}
+ // ssr={true} // means to render carousel on server-side.
+  infinite={true}
+  autoPlay={true}
+  autoPlaySpeed={4000}
+  keyBoardControl={true}
+  //customTransition="all .5"
+  //transitionDuration={500}
+  containerClass="carousel-container"
+  removeArrowOnDeviceType={["tablet", "mobile"]}
+  //deviceType={this.props.deviceType}
+  dotListClass="custom-dot-list-style"
+  itemClass="carousel-item-padding-40-px"
+>
+  {
+    products.map((e)=>{
+        return (
+            <div className="max-w rounded overflow-hidden  m-2  p-2 ">
+                <div className="">
+                    <img src={e.url} className='object-contain h-48 w-96' alt="product item" />
+                </div>
+                <div className="px-6 py-4 lg:font-bold text-lg mb-2 justify-center text-center">
+                <p>{e.title.shortTitle}</p>
+                <p>{e.discount}</p>
+                <p>{e.tagline}</p>
+                </div>
+            </div>
+        )
+    })
+  }
+</Carousel>
+    </div>
+  )
+}
+
+export default Slider
