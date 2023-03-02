@@ -19,16 +19,16 @@ const responsive = {
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 0 },
+    breakpoint: { max: 464, min: 234 },
     items: 1,
   },
 };
-function Slider() {
+function Slider({title}) {
   return (
-    <div className=" py-4 border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4">
-      <div className="flex justify-between py-4 px-2">
-        <h3 className="font-bold text-xl">Deal of the day</h3>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    <div className="bg-white lg:py-4 border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4">
+      <div className="flex justify-between py-4 px-2 items-center">
+        <h3 className="font-bold lg:text-xl text-md">{title}</h3>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm lg:text-lg font-bold py-2 px-4 rounded">
           {" "}
           View All{" "}
         </button>
@@ -55,14 +55,14 @@ function Slider() {
         {products.map((e) => {
           return (
             <div className="max-w rounded overflow-hidden  m-2  p-2 ">
-              <div className="">
+              <div className=" items-center">
                 <img
                   src={e.url}
                   className="object-contain h-48 w-96"
                   alt="product item"
                 />
               </div>
-              <div className="px-6 py-4 lg:font-bold text-lg mb-2 justify-center text-center font-serif">
+              <div className=" py-2  lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
                 <p>{e.title.shortTitle}</p>
                 <p>{e.discount}</p>
                 <p>{e.tagline}</p>
