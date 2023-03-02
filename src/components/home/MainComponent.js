@@ -14,7 +14,7 @@ function MainComponent() {
           <div className="lg:flex hidden py-4 my-6  border-2 border-solid shadow-lg bg-slate-50  w-[20%] flex-col justify-evenly items-center ">
                   <h4 className=" text-xl font-bold">Festival latest launches</h4>
                   <img  className="p-4 h-[90%]" src="https://i0.wp.com/www.fman.org.np/wp-content/uploads/2022/08/banner-11.jpg?fit=1600%2C660&ssl=1" alt="" />
-                  <a href="" className="font-serif">See More</a>
+                  <a href="lol" className="font-serif">See More</a>
           </div>
         </div>
         <Slider title="Today's Deal"/>
