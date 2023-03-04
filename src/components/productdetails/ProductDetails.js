@@ -1,7 +1,9 @@
 import { Divider } from "@mui/material";
 import React from "react";
 import Rating from "material-ui-rating";
-const Cart = () => {
+
+
+const ProductDetails = () => {
   return (
     <div className="w-full h-auto  md:h-screen relative top-16 bg-white">
       <div className="md:flex  mx-auto w-[95%] px-4 py-12  flex flex-col md:flex-row items-center">
@@ -67,4 +69,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default ProductDetails;

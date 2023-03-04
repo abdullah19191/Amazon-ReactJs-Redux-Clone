@@ -5,7 +5,7 @@ import Footer from './components/footer/footer';
 import Signin from './components/Authenticate/Signin';
 import Signup from './components/Authenticate/Signup';
 import {Routes, Route } from "react-router-dom";
-import Cart from './components/cart/Cart';
+import ProductDetails from './components/productdetails/ProductDetails';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<MainComponent/>}/>
           <Route path='/login' element={<Signin/>} />
           <Route path="/register" element={ <Signup/>} />
-          <Route path="/getproduct/:id" element={ <Cart/>} />
+          <Route path="/getproduct/:id" element={<ProductDetails/>} />
       </Routes>
       <Footer/>
     </>
