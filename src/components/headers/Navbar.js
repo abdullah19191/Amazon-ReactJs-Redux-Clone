@@ -2,17 +2,18 @@ import React from "react";
 import Badge from '@mui/material/Badge';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Avatar from '@mui/material/Avatar';
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 function Navbar() {
   return (
     <header className="bg-[#131921] w-[100%] h-[60px] fixed z-10 shadow">
       <nav className="m-auto flex justify-around items-center ">
         <div className="Left flex justify-around items-center lg:gap-60">
           <div className="navlogo mt-2 cursor-pointer container flex flex-wrap items-center justify-between">
-          <NavLink
+          <Link
             to="/">
-            <img src="./img/amazon_PNG25.png" alt="" width="120px" />
-          </NavLink>
+            <img src="./img/amazon_PNG25.png" alt="logo" width="120px" />
+          </Link>
           </div>
           <div className="nav_searchbar items-center justify-center hidden lg:flex " id="navbar-dropdown">
             <input type="search" className="w-full md:w-[400px] h-[40px] relative flex-auto min-w-0 block  px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#febd29] focus:outline-none" placeholder="Search Your Products" aria-label="Search" aria-describedby="button-addon2" />
@@ -31,9 +32,11 @@ function Navbar() {
     </button>
         <div className="Right flex justify-center items-center">
           <div className="nav_btn">
-          <NavLink to="/login">
+          <Link to="/login">
+            <div className="">
             <a href="#lll" className="text-[#fff] font-medium mr-2 border-2 border-[#131921] p-[8px] hover:border-white hover:border-current rounded-sm" >Sign in</a>
-          </NavLink>
+            </div>
+          </Link>
           </div>
           <div className="cart_btn flex ml-5 mt-[2px] mr-[4px] items-center p-2 hover:text-lg justify-between border-transparent hover:border-white  border-2">
             <Badge badgeContent={4} color="primary">

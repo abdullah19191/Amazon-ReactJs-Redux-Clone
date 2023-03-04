@@ -23,7 +23,7 @@ const addData = (e)=>{
   console.log(e.target.value)
 }
   return (
-    <section className=" w-[100%] relative p-12 lg:p-0 lg:top-[90px] min-h-screen">
+    <section className=" w-[100%] relative p-12 bg-white lg:p-0 lg:top-16 min-h-screen">
     <div className="mx-auto my-auto">
       <div className="">
         <img

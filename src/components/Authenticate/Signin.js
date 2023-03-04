@@ -21,7 +21,7 @@ const Signin = () => {
 
     return (
 
-    <section className=" w-[100%] relative top-[130px] min-h-screen">
+    <section className=" w-[100%] relative top-16 min-h-screen bg-white">
       <div className="">
         <div className="">
           <img
