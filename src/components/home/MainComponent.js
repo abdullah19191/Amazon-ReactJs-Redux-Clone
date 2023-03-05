@@ -9,20 +9,30 @@ function MainComponent() {
         <Banner />
         <div className="justify-between flex md:flex-row flex-col">
           <div className=" lg:w-[80%]">
-            <Slider title="Deal of the day"/>
+            <Slider title="Deal of the day" />
           </div>
           <div className="lg:flex hidden py-4 my-6  border-2 border-solid shadow-lg bg-slate-50  w-[20%] flex-col justify-evenly items-center ">
-                  <h4 className=" text-xl font-bold">Festival latest launches</h4>
-                  <img  className="p-4 h-[90%]" src="https://i0.wp.com/www.fman.org.np/wp-content/uploads/2022/08/banner-11.jpg?fit=1600%2C660&ssl=1" alt="" />
-                  <a href="lol" className="font-serif">See More</a>
+            <h4 className=" text-xl font-bold">Festival latest launches</h4>
+            <img
+              className="p-4 h-[90%]"
+              src="https://i0.wp.com/www.fman.org.np/wp-content/uploads/2022/08/banner-11.jpg?fit=1600%2C660&ssl=1"
+              alt=""
+            />
+            <a href="lol" className="font-serif">
+              See More
+            </a>
           </div>
         </div>
-        <Slider title="Today's Deal"/>
+        <Slider title="Today's Deal" />
         <div className="w-[80%] block mt-4 mx-auto">
-            <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/2bbcfa99737217.5ef9be3dbb9a9.jpg" className="" alt="" />
+          <img
+            src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/2bbcfa99737217.5ef9be3dbb9a9.jpg"
+            className=""
+            alt=""
+          />
         </div>
-        <Slider title="Best Seller"/>
-        <Slider title="Upto 80% off"/>
+        <Slider title="Best Seller" />
+        <Slider title="Upto 80% off" />
         {/* <Slider /> */}
       </div>
     </div>

@@ -11,9 +11,9 @@ const Option = () => {
             <option value="3">3</option>
             <option value="4">4</option>
         </select>
-        <p className='text-blue-400 font-normal'>Delete</p><span>|</span>
-        <p className='text-blue-400 font-normal'>Save Or Later</p><span>|</span>
-        <p className='text-blue-400 font-normal'>See More like this</p>
+        <p className='text-blue-400 md:font-normal text-sm lg:text-lg'>Delete</p><span>|</span>
+        <p className='text-blue-400 md:font-normal text-sm lg:text-lg'>Save Or Later</p><span>|</span>
+        <p className='text-blue-400 md:font-normal text-sm lg:text-lg'>See More like this</p>
     </div>
         <div className="">
         <Rating value={4} max={5} name="size-large"  onChange={(value) => console.log(`Rated with value ${value}`)}/>

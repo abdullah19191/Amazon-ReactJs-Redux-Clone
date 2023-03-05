@@ -1,18 +1,19 @@
 import { Divider } from "@mui/material";
 import React from "react";
 import Option from "./Option";
+import RightAdds from "./RightAdds";
 
 const cart = () => {
   return (
-    <div className="w-full h-auto  md:h-screen relative top-16">
-      <div className="flex flex-col md:flex-row mx-auto my-0 px-5 py-10 justify-around items-start w-[95%]">
-        <div className="bg-white flex-[.7] px-5 py-3 border-1 rounded-md">
+    <div className="w-full h-auto mb-9 md:h-[90vh] relative top-16 ">
+      <div className="flex flex-col-reverse md:flex-row mx-auto my-0 md:px-5 py-4 md:py-8 items-center md:justify-around w-[95%]">
+        <div className="bg-white md:flex-[.88] flex-1  px-5 py-3 border-1 rounded-md mb-5 md:mb-0">
           <h1 className="font-bold text-3xl">Shopping Cart</h1>
           <h5 className="font-semibod text-1xl text-blue-700 my-3">
             Select All items
           </h5>
           <Divider />
-          <div className="md:flex py-4 pr-[5px] pl-[20px] items-center justify-center">
+          <div className="md:flex py-4 pr-[5px] items-center justify-center">
             <div className="  justify-center md:justify-start flex md:flex-none">
               <img
                 src="https://rukminim1.flixcart.com/image/300/300/kll7bm80/smartwatch/c/1/n/43-mo-sw-sense-500-android-ios-molife-original-imagyzyycnpujyjh.jpeg?q=70"
@@ -49,8 +50,8 @@ const cart = () => {
             </h3>
           </div>
         </div>
-        <div className="bg-white flex-[.2] border-1 rounded-md mr-[-10px] py-0 px-12">
-          <h1>right</h1>
+        <div className="md:w-auto w-full">
+        <RightAdds/>
         </div>
       </div>
     </div>
