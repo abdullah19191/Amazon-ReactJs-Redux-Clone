@@ -5,7 +5,7 @@ import RightAdds from "./RightAdds";
 
 const cart = () => {
   return (
-    <div className="w-full h-auto mb-9 md:h-[90vh] relative top-16 ">
+    <div className="w-full h-auto mb-9 md:h-[90vh] relative top-16">
       <div className="flex flex-col-reverse md:flex-row mx-auto my-0 md:px-5 py-4 md:py-8 items-center md:justify-around w-[95%]">
         <div className="bg-white md:flex-[.88] flex-1  px-5 py-3 border-1 rounded-md mb-5 md:mb-0">
           <h1 className="font-bold text-3xl">Shopping Cart</h1>
@@ -51,7 +51,7 @@ const cart = () => {
           </div>
         </div>
         <div className="md:w-auto w-full">
-        <RightAdds/>
+          <RightAdds />
         </div>
       </div>
     </div>
