@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 
+@Layer components{
+    .headerHover{
+       @apply cursor-pointer items-center ml-11 border-2 px-2 border-transparent rounded-lg hover:border-white flex h-[80%]
+    }
+}

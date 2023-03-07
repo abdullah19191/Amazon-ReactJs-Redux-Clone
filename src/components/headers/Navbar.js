@@ -7,11 +7,11 @@ import { Link } from "react-router-dom";
 function Navbar() {
   return (
 <div className="">
-  <div className=" w-full bg-[#131921] text-white px-4 py-3 flex">
-  <div className="cursor-pointer items-center px-2 border-0 rounded-lg hover:border-2 flex h-[80%]">
+  <div className=" w-full bg-[#131921] text-white px-4 py-3 flex items-center">
+  <div className="cursor-pointer  ml-11 items-center px-2 border-0 rounded-lg hover:border-2 flex h-[80%]">
            <Link
             to="/">
-            <img src="./img/amazon_PNG25.png" alt="logo" className=" w-28 mt-2" />
+            <img src="./img/amazon_PNG25.png" alt="logo" className="  w-32 mt-2" />
           </Link>
           </div>
   </div>
