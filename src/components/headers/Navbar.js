@@ -1,7 +1,7 @@
 import React from "react";
-import Badge from '@mui/material/Badge';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import Badge from "@mui/material/Badge";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 // import Avatar from '@mui/material/Avatar';
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
@@ -20,18 +20,13 @@ function Navbar() {
           </Link>
         </div>
         <div className="headerHover flex items-center">
-              <span>
-                <LocationOnIcon  />
-              </span>
-        <div className="flex flex-col items-start justify-center mr-3 py-1">
-          
+          <span>
+            <LocationOnIcon />
+          </span>
+          <div className="flex flex-col items-start justify-center mr-3 py-1">
             <p className=" text-xs font-light text-[#fff] ">Add your</p>
-            <p className=" font-semibold -mt-1 text-sm">
-              Location
-            </p>
-           
-        </div>
-
+            <p className=" font-semibold -mt-1 text-sm">Location</p>
+          </div>
         </div>
         <div className=" rounded-md flex flex-grow h-10 mx-3">
           <span className=" bg-gray-200 duration-200 font-medium hover:bg-gray-300 flex items-center text-sm text-black justify-center w-14 h-full rounded-tl-md rounded-bl-md">
@@ -61,18 +56,16 @@ function Navbar() {
             {/* <a href="#lll" className="text-[#fff] font-medium mr-2 border-2 border-[#131921] p-[8px] hover:border-white hover:border-current rounded-sm" >Sign in</a> */}
           </Link>
         </div>
-      <div className="headerHover flex flex-col items-start justify-center mr-3 py-1">
-        <p className=" text-xs font-light text-[#fff] ">Return</p>
-        <p className=" font-semibold -mt-1 text-sm">
-          & Orders  
-        </p>
-      </div>
-      <div className="cart_btn flex ml-5 mt-[2px] mr-[4px] items-center p-2 hover:text-lg justify-between border-transparent hover:border-white  border-2">
-            <Badge badgeContent={4} color="primary">
-              < ShoppingCartIcon className="text-[#fff] " />
-            </Badge>
-            <p className="text-[#fff] font-medium text-sm mr-2">Cart</p>
-           </div>
+        <div className="headerHover flex flex-col items-start justify-center mr-3 py-1">
+          <p className=" text-xs font-light text-[#fff] ">Return</p>
+          <p className=" font-semibold -mt-1 text-sm">& Orders</p>
+        </div>
+        <div className="cart_btn flex ml-5 mt-[2px] mr-[4px] items-center p-2 hover:text-lg justify-between border-transparent hover:border-white  border-2">
+          <Badge badgeContent={4} color="primary">
+            <ShoppingCartIcon className="text-[#fff] " />
+          </Badge>
+          <p className="text-[#fff] font-medium text-sm mr-2">Cart</p>
+        </div>
       </div>
     </div>
 
