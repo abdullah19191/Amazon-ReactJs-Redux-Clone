@@ -6,6 +6,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import NavbarBottom from "./NavbarBottom";
 function Navbar() {
   return (
     <div className="">
@@ -67,6 +68,7 @@ function Navbar() {
           <p className="text-[#fff] font-medium text-sm mr-2">Cart</p>
         </div>
       </div>
+      <NavbarBottom />
     </div>
 
     // <header className="bg-[#131921] w-[100%] h-[60px] fixed z-10 shadow">
