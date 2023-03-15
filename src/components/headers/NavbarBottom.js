@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
+import SidebarNav from "./SidebarNav";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+
 
 const NavbarBottom = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -23,18 +25,17 @@ const NavbarBottom = () => {
       {sidebar && (
         <div className=" w-full h-screen text-black fixed top-0 left-0 bg-[#131921] bg-opacity-50 z-50">
           <div className=" w-full h-full relative">
-            <div className=" bg-white w-[350px] h-full border border-black">
-              <div className=" w-full bg-[#131921] text-white py-2 px-6 flex items-center gap-4">
+          <div className=" bg-white w-[350px] h-full border border-black">
+          <div className=" w-full bg-[#131921] text-white py-2 px-6 flex items-center gap-4">
                 <AccountCircleIcon />
                 <h1 className=" font-bold text-md tracking-wide">
                   Hellow, Sign In
                 </h1>
               </div>
-              <div className="">
-                <h3 className=" text-lg  font-bold mb-1 px-6">
-                  Digital Content & Devices
-                </h3>
-              </div>
+            <SidebarNav/>
+            <SidebarNav/>
+            <SidebarNav/>
+            <SidebarNav/>
             </div>
           </div>
         </div>
