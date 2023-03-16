@@ -60,7 +60,7 @@ function Slider({title}) {
               <div className=" items-center">
                 <img
                   src={e.url}
-                  className=" w-[66%] h-56"
+                  className=" w-[66%] h-56 md:w-[40%] md:h-32"
                   alt="product item"
                 />
               </div>
