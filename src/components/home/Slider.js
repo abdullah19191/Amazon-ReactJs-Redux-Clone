@@ -34,6 +34,8 @@ function Slider({title}) {
         </button>
       </div>
       <Divider />
+      <div className="md:mt-8 mt-6">
+
       <Carousel
         centerMode={true}
         swipeable={true}
@@ -54,11 +56,11 @@ function Slider({title}) {
       >
         {products.map((e) => {
           return (
-            <div className="max-w rounded overflow-hidden  m-2  p-2 ">
+            <div className=" h-full w-full">
               <div className=" items-center">
                 <img
                   src={e.url}
-                  className="object-contain h-48 w-96"
+                  className=" w-[66%] h-56"
                   alt="product item"
                 />
               </div>
@@ -71,6 +73,7 @@ function Slider({title}) {
           );
         })}
       </Carousel>
+      </div>
     </div>
   );
 }
