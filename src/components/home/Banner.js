@@ -4,7 +4,7 @@ import Carousel from "react-material-ui-carousel";
 
 function Banner() {
   return (
-    <div className="w-full h-auto md:h-[60vh] relative top-14 -z-50">
+    <div className="w-full h-auto -z-50">
     <Carousel
       autoPlay={true}
       animation="slide"
