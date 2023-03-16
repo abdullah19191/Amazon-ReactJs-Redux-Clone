@@ -2,9 +2,7 @@ import { Divider } from "@mui/material";
 import React from "react";
 import Rating from "material-ui-rating";
 
-
 const ProductDetails = () => {
-  
   return (
     <div className="w-full h-auto  md:h-screen relative top-16 bg-white">
       <div className="md:flex  mx-auto w-[95%] px-4 py-12  flex flex-col md:flex-row items-center">
@@ -60,9 +58,23 @@ const ProductDetails = () => {
             </p>
           </div>
           <div className=" justify-center pl-4 ">
-            <Rating value={4} max={5} name="size-large"  onChange={(value) => console.log(`Rated with value ${value}`)}
+            <Rating
+              value={4}
+              max={5}
+              name="size-large"
+              onChange={(value) => console.log(`Rated with value ${value}`)}
             />
-            <p className="font-semibold mb-2">About the item:<span className="font-thin">The Molife Sense 500, a brilliant smartwatch with a beautiful large display. Say hello to the infinity 1.7-inch display with 2.5D curved edges. Thanks to seamless Bluetooth 5.0 connectivity, you wont have to keep waiting. Bring a change to your outfit every day with changeable straps. A splash of color every day keeps the boredom away</span></p>
+            <p className="font-semibold mb-2">
+              About the item:
+              <span className="font-thin">
+                The Molife Sense 500, a brilliant smartwatch with a beautiful
+                large display. Say hello to the infinity 1.7-inch display with
+                2.5D curved edges. Thanks to seamless Bluetooth 5.0
+                connectivity, you wont have to keep waiting. Bring a change to
+                your outfit every day with changeable straps. A splash of color
+                every day keeps the boredom away
+              </span>
+            </p>
           </div>
         </div>
       </div>
