@@ -4,6 +4,7 @@ import Rating from "material-ui-rating";
 
 
 const ProductDetails = () => {
+  
   return (
     <div className="w-full h-auto  md:h-screen relative top-16 bg-white">
       <div className="md:flex  mx-auto w-[95%] px-4 py-12  flex flex-col md:flex-row items-center">
