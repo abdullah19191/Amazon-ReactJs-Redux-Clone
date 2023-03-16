@@ -8,7 +8,7 @@ function MainComponent() {
       <div className="banner_part">
         <Banner />
         <div className="justify-between flex md:flex-row flex-col">
-          <div className=" lg:w-[80%]">
+          <div className=" lg:w-[80%] ">
             <Slider title="Deal of the day" />
           </div>
           <div className="lg:flex hidden py-4 my-6  border-2 border-solid shadow-lg bg-slate-50  w-[20%] flex-col justify-evenly items-center ">
