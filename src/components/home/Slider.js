@@ -23,7 +23,7 @@ const responsive = {
     items: 1,
   },
 };
-function Slider({title}) {
+function Slider({ title }) {
   return (
     <div className="bg-white lg:py-4 border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4">
       <div className="flex justify-between py-4 px-2 items-center">
@@ -35,44 +35,43 @@ function Slider({title}) {
       </div>
       <Divider />
       <div className="md:mt-8 mt-6">
-
-      <Carousel
-        centerMode={true}
-        swipeable={true}
-        draggable={false}
-        showDots={false}
-        responsive={responsive}
-        infinite={true}
-        autoPlay={true}
-        autoPlaySpeed={4000}
-        keyBoardControl={true}
-        //customTransition="all .5"
-        //transitionDuration={500}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile","desktop"]} 
-        //deviceType={this.props.deviceType}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
-      >
-        {products.map((e) => {
-          return (
-            <div className=" h-full w-full">
-              <div className=" items-center">
-                <img
-                  src={e.url}
-                  className=" w-[66%] h-56 md:w-[40%] md:h-32"
-                  alt="product item"
-                />
+        <Carousel
+          centerMode={true}
+          swipeable={true}
+          draggable={false}
+          showDots={false}
+          responsive={responsive}
+          infinite={true}
+          autoPlay={true}
+          autoPlaySpeed={4000}
+          keyBoardControl={true}
+          //customTransition="all .5"
+          //transitionDuration={500}
+          containerClass="carousel-container"
+          removeArrowOnDeviceType={["tablet", "mobile", "desktop"]}
+          //deviceType={this.props.deviceType}
+          dotListClass="custom-dot-list-style"
+          itemClass="carousel-item-padding-40-px"
+        >
+          {products.map((e) => {
+            return (
+              <div className=" h-full w-full">
+                <div className=" items-center">
+                  <img
+                    src={e.url}
+                    className=" w-[66%] h-56 md:w-[40%] md:h-32"
+                    alt="product item"
+                  />
+                </div>
+                <div className=" py-2  lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
+                  <p>{e.title.shortTitle}</p>
+                  <p>{e.discount}</p>
+                  <p>{e.tagline}</p>
+                </div>
               </div>
-              <div className=" py-2  lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
-                <p>{e.title.shortTitle}</p>
-                <p>{e.discount}</p>
-                <p>{e.tagline}</p>
-              </div>
-            </div>
-          );
-        })}
-      </Carousel>
+            );
+          })}
+        </Carousel>
       </div>
     </div>
   );
