@@ -4,6 +4,7 @@ import SidebarNav from "./SidebarNav";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const NavbarBottom = () => {
   const ref = useRef();
@@ -25,7 +26,9 @@ const NavbarBottom = () => {
           <MenuIcon />
           All
         </li>
+        <Link to="/products/">
         <li className="headerHover">Today's Deal</li>
+        </Link>
         <li className="headerHover">Customer Service</li>
         <li className="headerHover">Gift Cards</li>
         <li className="headerHover">Sell</li>
