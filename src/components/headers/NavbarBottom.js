@@ -26,8 +26,8 @@ const NavbarBottom = () => {
           <MenuIcon />
           All
         </li>
-        <Link to="/products/">
-        <li className="headerHover">Today's Deal</li>
+        <Link to="/product/">
+          <li className="headerHover">Today's Deal</li>
         </Link>
         <li className="headerHover">Customer Service</li>
         <li className="headerHover">Gift Cards</li>
