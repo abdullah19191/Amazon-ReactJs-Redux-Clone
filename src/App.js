@@ -7,6 +7,7 @@ import Signup from './components/Authenticate/Signup';
 import {Routes, Route } from "react-router-dom";
 import ProductDetails from './components/productdetails/ProductDetails';
 import Cart from './components/cart/Cart';
+import Products from './components/home/Products';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/register" element={ <Signup/>} />
           <Route path="/getproduct/:id/" element={<ProductDetails/>} />
           <Route path="/cart/" element={<Cart/>} />
+          <Route path="/products/" element={<Products/>} />
       </Routes>
       <Footer/>
     </>
