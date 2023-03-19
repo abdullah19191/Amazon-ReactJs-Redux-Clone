@@ -1,14 +1,11 @@
-import React, { useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import { useSelector } from "react-redux";
 
 const Products = () => {
-  useEffect(() => {
-    async function ProductsData() {
-      let data = await axios.get("https://fakestoreapi.com/products");
-      console.log(data);
-    }
-    ProductsData();
-  }, []);
+ const state =  useSelector((state)=> state);
+
+ console.log("State",state)
+  
   return <div>API PRODUCTS</div>;
 };
 
