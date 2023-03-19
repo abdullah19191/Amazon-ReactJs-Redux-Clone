@@ -55,11 +55,11 @@ function Slider({ title }) {
         >
           {products.map((e) => {
             return (
-              <div className=" h-full w-full">
-                <div className=" items-center">
+              <div className=" flex flex-col items-center justify-center">
+                <div className="">
                   <img
                     src={e.url}
-                    className=" w-[66%] h-56 md:w-[40%] md:h-32"
+                    className=" w-52  h-64 object-contain"
                     alt="product item"
                   />
                 </div>
