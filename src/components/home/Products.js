@@ -15,20 +15,21 @@ const Products = () => {
     );
   }
   return (
-    <div className="w-full  grid grid-cols-2 gap-10 mx-auto px-4 mt-12 md:grid-cols-4">
+    <div className="w-full  grid grid-cols-1 gap-10 mx-auto px-4 mt-12 md:grid-cols-2 lg:grid-cols-4">
       {state.product.data &&
         state.product.data.map((e) => {
           return (
             <div
               key={e.id}
-              className="bg-white border-1 rounded-2xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-200 py-6 z-30 shadow flex flex-col"
+              className="bg-white border-1  rounded-xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-200 py-8 z-30 shadow flex flex-col"
             >
               <div className="h-auto flex justify-center items-center w-full">
                 <img
                   src={e.image}
                   alt=""
                   className="w-52  h-64 object-contain"
-                />
+                  />
+                  <span className=" text-sm absolute capitalize italic top-2 right-2 text-gray-500">{e.category}</span>
               </div>
               <div className=" px-4">
                 <div className=" flex gap-12 justify-between items-center">
