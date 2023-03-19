@@ -1,6 +1,7 @@
 import { CircularProgress } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
+import Rating from "material-ui-rating";
 
 const Products = () => {
   const state = useSelector((state) => state);
@@ -34,12 +35,25 @@ const Products = () => {
                   <h1 className=" font-medium tracking-wide text-lg text-[#131139]">
                     {e.title.substring(0, 20)}
                   </h1>
-                  {/* <h1>{e.description}$</h1> */}
                   <h1 className="font-medium tracking-wide text-md text-[#131139]">
                     ${e.price}
                   </h1>
                 </div>
+                <h1 className=" font-normal text-md">
+                  {e.description.substring(0, 100)}...
+                </h1>
               </div>
+                <Rating
+                  value={e.rating.rate}
+                  max={5}
+                  name="size-large"
+                  onChange={(value) => console.log(`Rated with value ${value}`)}
+                />
+                <div className=" px-4">
+                <button className=" hover:bg-[#ec9615] border-2 border-gray-300 hover:border-black rounded-[5px] bg-[#FFD814] text-[#0F1111] hover:drop-shadow-xl w-full font-[14px] px-7 py-3">
+              Add to Cart
+            </button>
+                </div>
             </div>
           );
         })}

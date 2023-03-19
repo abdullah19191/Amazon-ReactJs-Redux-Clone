@@ -21,7 +21,7 @@ const NavbarBottom = () => {
     });
   });
   return (
-    <div className="w-full bg-[#131139] h-9 text-white px-4 flex items-center">
+    <div className="w-full bg-[#1E2F3E] h-9 text-white px-4 flex items-center ">
       <ul className="flex items-center tracking-wide text-sm gap-4">
         <li
           className="headerHover flex gap-1 items-center"
@@ -66,9 +66,7 @@ const NavbarBottom = () => {
               <span
                 onClick={() => setSidebar(false)}
                 className=" top-0 left-[356px] w-10 h-10 absolute text-black flex items-center justify-center
-             bg-gray-200 hover:bg-red-600  hover:text-white border duration-300
-            "
-              >
+             bg-gray-200 hover:bg-red-600  hover:text-white border duration-300">
                 <CloseIcon />
               </span>
             </motion.div>
