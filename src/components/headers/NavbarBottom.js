@@ -6,13 +6,13 @@ import CloseIcon from "@mui/icons-material/Close";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import {fetchProducts} from '../../redux/slice/productslice'
+import { fetchProducts } from "../../redux/slice/productslice";
 
 const NavbarBottom = () => {
   const dispatch = useDispatch();
   const ref = useRef();
   const [sidebar, setSidebar] = useState(false);
-  
+
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
       if (e.target.contains(ref.current)) {
@@ -31,7 +31,12 @@ const NavbarBottom = () => {
           All
         </li>
         <Link to="/product/">
-          <li onClick={(e)=> dispatch(fetchProducts())} className="headerHover">Today's Deal</li>
+          <li
+            onClick={(e) => dispatch(fetchProducts())}
+            className="headerHover"
+          >
+            Today's Deal
+          </li>
         </Link>
         <li className="headerHover">Customer Service</li>
         <li className="headerHover">Gift Cards</li>
