@@ -9,7 +9,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import NavbarBottom from "./NavbarBottom";
 function Navbar() {
   return (
-    <div className="">
+    <div className=" sticky top-0 z-50 ">
       <div className="w-full bg-[#131921] text-white px-4 py-3 flex items-center">
         <div className="headerHover ml-2">
           <Link to="/">
