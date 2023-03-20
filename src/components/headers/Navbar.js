@@ -45,11 +45,11 @@ function Navbar() {
             <SearchIcon />
           </span>
         </div>
-        <div className="headerHover hidden md:inline-flex  flex-col items-start justify-center mr-3 py-1">
+        <div className="headerHover  flex-col items-start justify-center mr-0 md:mr-3 py-1">
           <Link to="/login">
             <p className=" text-xs font-light text-[#fff] ">Hi, Sign in</p>
             <p className=" font-semibold -mt-1 text-sm">
-              Accounts & Lists{" "}
+              {/* Accounts & Lists{" "} */}
               <span>
                 <ArrowDropDownIcon />
               </span>
