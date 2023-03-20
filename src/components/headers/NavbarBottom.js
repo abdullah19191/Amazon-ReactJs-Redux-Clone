@@ -51,7 +51,7 @@ const NavbarBottom = () => {
               initial={{ x: -500, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.5 }}
-              className=" bg-white w-[350px] h-full border border-black"
+              className=" bg-white sm:w-[350px] w-[80%] h-full border border-black"
             >
               <div className=" w-full bg-[#131921] text-white py-4 px-6 flex items-center gap-4 text-lg ">
                 <AccountCircleIcon />
@@ -65,7 +65,7 @@ const NavbarBottom = () => {
               <SidebarNav />
               <span
                 onClick={() => setSidebar(false)}
-                className=" top-0 left-[356px] w-10 h-10 absolute text-black flex items-center justify-center
+                className=" top-0 left-[82%] sm:left-[356px] w-10 h-10 absolute text-black flex items-center justify-center
              bg-gray-200 hover:bg-red-600  hover:text-white border duration-300">
                 <CloseIcon />
               </span>
