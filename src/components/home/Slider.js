@@ -3,6 +3,9 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Divider } from "@mui/material";
 import { products } from "./ProductData";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { fetchProducts } from "../../redux/slice/productslice";
 
 const responsive = {
   superLargeDesktop: {
@@ -25,15 +28,19 @@ const responsive = {
   },
 };
 function Slider({ title }) {
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-white lg:py-4 border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4">
       <div className="flex justify-between py-4 px-2 items-center">
         <h3 className="font-bold lg:text-xl text-md">{title}</h3>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm lg:text-lg font-bold py-2 px-4 rounded">
-          {" "}
-          View All{" "}
+        <Link to="/product/">
+        <button  onClick={(e) => dispatch(fetchProducts())} className="bg-blue-500 hover:bg-blue-700 text-white text-sm lg:text-lg font-bold py-2 px-4 rounded">
+          View All
         </button>
+        </Link>
       </div>
+          {" "}
       <Divider />
       <div className="md:mt-8 mt-6">
         <Carousel
@@ -65,16 +72,16 @@ function Slider({ title }) {
                   />
                 </div>
                 <div className=" lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
-                  <p>{e.title.shortTitle.substring(0, 8)}</p>
-                  <p className="text-md  font-semibold">{e.discount}</p>
+                  <p className="text-xl tracking-tight">{e.title.shortTitle.substring(0, 8)}</p>
                   <p className="text-sm font-normal">
                     {e.tagline.substring(0, 20)}
                   </p>
+                  <p className="text-md  font-semibold">{e.discount}</p>
                 </div>
-                <div class="mt-2 mb-5 flex items-center justify-between">
+                <div class=" mb-3 flex items-center justify-between">
                   <p>
-                    <span class="text-3xl font-bold ">$449</span>
-                    <span class="text-sm  line-through">$699</span>
+                    <span class="text-3xl font-bold ">${e.price.cost}</span>
+                    <span class="text-sm  line-through">${e.price.mrp}</span>
                   </p>
                 </div>
               </div>
