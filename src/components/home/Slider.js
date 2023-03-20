@@ -63,7 +63,7 @@ function Slider({ title }) {
         >
           {products.map((e) => {
             return (
-              <div className=" bg-white  my-2  rounded-xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[80%] ">
+              <div className=" bg-white  my-2  border-1 rounded-xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[80%] ">
                 <div className="p-1">
                   <img
                     src={e.url}
@@ -72,7 +72,7 @@ function Slider({ title }) {
                   />
                 </div>
                 <div className=" lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
-                  <p className="text-xl tracking-tight">{e.title.shortTitle.substring(0, 8)}</p>
+                  <p className="text-xl tracking-tight">{e.title.shortTitle.substring(0, 8)}..</p>
                   <p className="text-sm font-normal">
                     {e.tagline.substring(0, 20)}
                   </p>
