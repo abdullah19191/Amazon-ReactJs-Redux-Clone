@@ -38,10 +38,10 @@ const NavbarBottom = () => {
             Today's Deal
           </li>
         </Link>
-        <li className="headerHover">Customer Service</li>
-        <li className="headerHover">Gift Cards</li>
-        <li className="headerHover">Sell</li>
-        <li className="headerHover">Register</li>
+        <li className="headerHover hidden sm:inline-flex">Customer Service</li>
+        <li className="headerHover hidden sm:inline-flex">Gift Cards</li>
+        <li className="headerHover hidden sm:inline-flex">Sell</li>
+        <li className="headerHover hidden sm:inline-flex">Register</li>
       </ul>
       {sidebar && (
         <div className=" w-full h-screen text-black fixed top-0 left-0 bg-[#131921] bg-opacity-50 z-50">

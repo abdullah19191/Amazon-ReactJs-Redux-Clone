@@ -10,8 +10,8 @@ import NavbarBottom from "./NavbarBottom";
 function Navbar() {
   return (
     <div className=" sticky top-0 z-50 ">
-      <div className="w-full bg-[#131921] text-white px-4 py-3 flex items-center">
-        <div className="headerHover ml-2">
+      <div className="w-full bg-[#131921] text-white  px-4 py-3  flex-wrap justify-between mx-auto flex items-center">
+        <div className="headerHover md:ml-2 ">
           <Link to="/">
             <img
               src="./img/amazon_PNG25.png"
@@ -61,11 +61,13 @@ function Navbar() {
           <p className=" text-xs font-light text-[#fff] ">Return</p>
           <p className=" font-semibold -mt-1 text-sm">& Orders</p>
         </div>
+        <div className="">
         <div className="cart_btn flex ml-5 mt-[2px] mr-[4px] items-center p-2 hover:text-lg justify-between border-transparent hover:border-white  border-2">
           <Badge badgeContent={4} color="primary">
             <ShoppingCartIcon className="text-[#fff] " />
           </Badge>
           <p className="text-[#fff] font-medium text-sm mr-2">Cart</p>
+        </div>
         </div>
       </div>
       <NavbarBottom />
