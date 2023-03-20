@@ -26,7 +26,7 @@ const responsive = {
 };
 function Slider({ title }) {
   return (
-    <div className="bg-white lg:py-4 rounded-2xl border-2  my-6 lg:mx-4 shadow-lg  border-t-4 border-l-4 border-r-4">
+    <div className="bg-white lg:py-4 border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4">
       <div className="flex justify-between py-4 px-2 items-center">
         <h3 className="font-bold lg:text-xl text-md">{title}</h3>
         <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm lg:text-lg font-bold py-2 px-4 rounded">
@@ -56,8 +56,8 @@ function Slider({ title }) {
         >
           {products.map((e) => {
             return (
-              <div className=" bg-white border-1  rounded-xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-200 z-30 shadow flex flex-col items-center justify-center w-[80%] ">
-                <div className="">
+              <div className=" bg-white  my-2  rounded-xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[80%] ">
+                <div className="p-1">
                   <img
                     src={e.url}
                     className=" w-52  h-64 object-contain"
@@ -65,9 +65,17 @@ function Slider({ title }) {
                   />
                 </div>
                 <div className=" lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
-                  <p>{e.title.shortTitle.substring(0,8)}</p>
+                  <p>{e.title.shortTitle.substring(0, 8)}</p>
                   <p className="text-md  font-semibold">{e.discount}</p>
-                  <p className="text-sm font-normal">{e.tagline.substring(0,20)}</p>
+                  <p className="text-sm font-normal">
+                    {e.tagline.substring(0, 20)}
+                  </p>
+                </div>
+                <div class="mt-2 mb-5 flex items-center justify-between">
+                  <p>
+                    <span class="text-3xl font-bold ">$449</span>
+                    <span class="text-sm  line-through">$699</span>
+                  </p>
                 </div>
               </div>
             );
