@@ -7,25 +7,26 @@ import { products } from "./ProductData";
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
+    breakpoint: { max: 4000, min: 1024 },
     items: 5,
+    slidesToSlide: 2,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
+    breakpoint: { max: 1024, min: 800 },
+    items: 4,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 464 },
+    breakpoint: { max: 800, min: 464 },
     items: 2,
   },
   mobile: {
-    breakpoint: { max: 464, min: 234 },
+    breakpoint: { max: 464, min: 0 },
     items: 1,
   },
 };
 function Slider({ title }) {
   return (
-    <div className="bg-white lg:py-4 border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4">
+    <div className="bg-white lg:py-4 rounded-2xl border-2  my-6 lg:mx-4 shadow-lg  border-t-4 border-l-4 border-r-4">
       <div className="flex justify-between py-4 px-2 items-center">
         <h3 className="font-bold lg:text-xl text-md">{title}</h3>
         <button className="bg-blue-500 hover:bg-blue-700 text-white text-sm lg:text-lg font-bold py-2 px-4 rounded">
@@ -55,7 +56,7 @@ function Slider({ title }) {
         >
           {products.map((e) => {
             return (
-              <div className=" flex flex-col items-center justify-center">
+              <div className=" bg-white border-1  rounded-xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-200 z-30 shadow flex flex-col items-center justify-center w-[80%] ">
                 <div className="">
                   <img
                     src={e.url}
@@ -63,10 +64,10 @@ function Slider({ title }) {
                     alt="product item"
                   />
                 </div>
-                <div className=" py-2  lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
-                  <p>{e.title.shortTitle}</p>
-                  <p>{e.discount}</p>
-                  <p>{e.tagline}</p>
+                <div className=" lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
+                  <p>{e.title.shortTitle.substring(0,8)}</p>
+                  <p className="text-md  font-semibold">{e.discount}</p>
+                  <p className="text-sm font-normal">{e.tagline.substring(0,20)}</p>
                 </div>
               </div>
             );
