@@ -20,7 +20,7 @@ function Navbar() {
             />
           </Link>
         </div>
-        <div className="headerHover flex items-center">
+        <div className="headerHover  items-center hidden md:inline-flex">
           <span>
             <LocationOnIcon />
           </span>
@@ -29,7 +29,7 @@ function Navbar() {
             <p className=" font-semibold -mt-1 text-sm">Location</p>
           </div>
         </div>
-        <div className=" rounded-md flex flex-grow h-10 mx-3">
+        <div className=" rounded-md hidden lg:flex flex-grow h-10 mx-3">
           <span className=" bg-gray-200 duration-200 font-medium hover:bg-gray-300 flex items-center text-sm text-black justify-center w-14 h-full rounded-tl-md rounded-bl-md">
             All{" "}
             <span>
@@ -45,7 +45,7 @@ function Navbar() {
             <SearchIcon />
           </span>
         </div>
-        <div className="headerHover flex flex-col items-start justify-center mr-3 py-1">
+        <div className="headerHover hidden md:inline-flex  flex-col items-start justify-center mr-3 py-1">
           <Link to="/login">
             <p className=" text-xs font-light text-[#fff] ">Hi, Sign in</p>
             <p className=" font-semibold -mt-1 text-sm">
@@ -57,7 +57,7 @@ function Navbar() {
             {/* <a href="#lll" className="text-[#fff] font-medium mr-2 border-2 border-[#131921] p-[8px] hover:border-white hover:border-current rounded-sm" >Sign in</a> */}
           </Link>
         </div>
-        <div className="headerHover flex flex-col items-start justify-center mr-3 py-1">
+        <div className="headerHover flex-col items-start justify-center mr-3 py-1 hidden md:inline-flex  ">
           <p className=" text-xs font-light text-[#fff] ">Return</p>
           <p className=" font-semibold -mt-1 text-sm">& Orders</p>
         </div>
