@@ -22,8 +22,8 @@ const Signup = () => {
     console.log(e.target.value);
   };
   return (
-    <section className=" w-[100%] relative p-12 bg-white lg:p-0 lg:top-16 min-h-screen">
-      <div className="mx-auto my-auto">
+    <section className=" w-[100%] p-12 relative bg-white lg:p-0  h-auto">
+      <div className="lg:mb-2">
         <div className="">
           <img
             src="./img/blacklogoamazon.png"
