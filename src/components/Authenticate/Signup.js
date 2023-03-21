@@ -11,6 +11,7 @@ const Signup = () => {
   });
   console.log(updata);
   const addData = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
 
     setData(() => {
