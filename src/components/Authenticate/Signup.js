@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Validation from "./Validation";
 
 const Signup = () => {
   const [updata, setData] = useState({
@@ -9,6 +10,13 @@ const Signup = () => {
     password: "",
     cpassword: "",
   });
+  const [errors, setError] = useState({});
+
+  const  handleSubmit = (e) =>{
+    e.preventDefault();
+    setError(Validation(updata))
+    }
+  
   console.log(updata);
   const addData = (e) => {
     e.preventDefault();
@@ -33,7 +41,7 @@ const Signup = () => {
           />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <form className=" border-solid border-2 px-10 py-30 bg-white shadow-lg mt-[-60px] rounded-xl lg:w-3/12">
+          <form onSubmit={handleSubmit} className=" border-solid border-2 px-10 py-30 bg-white shadow-lg mt-[-60px] rounded-xl lg:w-3/12">
             <h1 className="  font-sans text-xl my-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign-Up
             </h1>
@@ -46,6 +54,7 @@ const Signup = () => {
                 name="name"
                 placeholder="Enter Name"
               />
+              
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="email" className="mb-1 font-medium text-lg">
@@ -58,6 +67,8 @@ const Signup = () => {
                 name="email"
                 placeholder="Email address"
               />
+                            { errors.email && <span style={{color:'red'}}>{errors.email}</span>}
+
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="email" className="mb-1 font-medium text-lg">
@@ -70,6 +81,7 @@ const Signup = () => {
                 name="mobile"
                 placeholder="Enter Mobile no"
               />
+              
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="password" className="mb-1 font-medium text-md">
@@ -82,6 +94,8 @@ const Signup = () => {
                 placeholder="At least 6 char"
                 className="relative mb-2  p-2  border-2  outline-none rounded-md"
               ></input>
+                            { errors.email && <span style={{color:'red'}}>{errors.email}</span>}
+
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="password" className="mb-1 font-medium text-md">

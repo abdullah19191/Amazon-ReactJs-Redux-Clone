@@ -1,6 +1,7 @@
 
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
+import Validation from "./Validation";
 
 const Signin = () => {
   const [logdata, setData] = useState({
@@ -8,24 +9,6 @@ const Signin = () => {
     password: "",
   });
   const [errors, setError] = useState({});
-
-  const validateUser = (value) => {
-   let errors = {}
-  
-   if(!value.email){
-    errors.email = "Please Enter Email"
-    }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(logdata.email)) {
-      errors.email = 'Invalid email address';
-    }
-    if(!value.password){
-      errors.password = "Please Enter Password"
-    }else if (value.password.length < 8) {
-      errors.password = 'Password length must be atleast 8 characters';
-    }else if (value.password.length > 15) {
-      errors.password = 'Password length exceeds 15 characters';
-    }
-    return errors;
-  };
 
   const addData = (e) => {
     const { name, value } = e.target;
@@ -41,7 +24,7 @@ const Signin = () => {
 
  const  handleSubmit = (e) =>{
   e.preventDefault();
-  setError(validateUser(logdata))
+  setError(Validation(logdata))
   }
 
   return (
@@ -87,7 +70,7 @@ const Signin = () => {
               ></input>
               { errors.password && <span style={{color:'red'}}>{errors.password}</span>}
             </div>
-            <button onClick={validateUser} className=" inline-block font-medium bg-gradient-to-r from-[#f7dfa5] to-[#f0c14b]  p-2 rounded-sm mt-2 cursor-pointer border-2 border-[#9c7e31] border-solid mb-7 h-10 w-full   text-[#111] bg-[#f3d078] outline-none ">
+            <button className=" inline-block font-medium bg-gradient-to-r from-[#f7dfa5] to-[#f0c14b]  p-2 rounded-sm mt-2 cursor-pointer border-2 border-[#9c7e31] border-solid mb-7 h-10 w-full   text-[#111] bg-[#f3d078] outline-none ">
               Continue
             </button>
           </form>
