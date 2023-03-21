@@ -48,7 +48,7 @@ const Signin = () => {
               </label>
               <input
                 type="text"
-                class="relative mb-2 p-2 border-2 outline-none rounded-md"
+                class="relative mb-2 p-2 border-2 outline-none rounded-md focus:border-orange-500"
                 name="email"
                 onChange={addData}
                 value={logdata.email}
@@ -66,7 +66,7 @@ const Signin = () => {
                 onChange={addData}
                 value={logdata.password}
                 placeholder="At least 6 char"
-                class="relative mb-2  p-2  border-2  outline-none rounded-md"
+                class="relative mb-2  p-2  border-2  outline-none rounded-md focus:border-orange-500"
               ></input>
               { errors.password && <span style={{color:'red'}}>{errors.password}</span>}
             </div>

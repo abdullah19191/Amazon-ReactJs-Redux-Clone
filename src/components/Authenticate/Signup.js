@@ -53,7 +53,7 @@ const Signup = () => {
               <input
                 type="text"
                 onChange={addData}
-                className="relative mb-2 p-2 border-2 outline-none rounded-md"
+                className="relative mb-2 p-2 border-2 outline-none rounded-md focus:border-orange-500"
                 name="name"
                 placeholder="Enter Name"
               />
@@ -68,7 +68,7 @@ const Signup = () => {
               <input
                 type="text"
                 onChange={addData}
-                className="relative mb-2 p-2 border-2 outline-none rounded-md"
+                className="relative mb-2 p-2 border-2 outline-none rounded-md focus:border-orange-500"
                 name="email"
                 placeholder="Email address"
               />
@@ -83,7 +83,7 @@ const Signup = () => {
               <input
                 type="text"
                 onChange={addData}
-                className="relative mb-2 p-2 border-2 outline-none rounded-md"
+                className="relative mb-2 p-2 border-2 outline-none rounded-md focus:border-orange-500"
                 name="mobile"
                 placeholder="Enter Mobile no"
               />
@@ -100,7 +100,7 @@ const Signup = () => {
                 name="password"
                 onChange={addData}
                 placeholder="At least 6 char"
-                className="relative mb-2  p-2  border-2  outline-none rounded-md"
+                className="relative mb-2  p-2  border-2  outline-none rounded-md focus:border-orange-500"
               ></input>
               {errors.password && (
                 <span style={{ color: "red" }}>{errors.password}</span>
@@ -115,7 +115,7 @@ const Signup = () => {
                 name="cpassword"
                 onChange={addData}
                 placeholder="Re-type Password"
-                className="relative mb-2  p-2  border-2  outline-none rounded-md"
+                className="relative mb-2  p-2  border-2  outline-none rounded-md focus:border-orange-500"
               ></input>
               {errors.cpassword && (
                 <span style={{ color: "red" }}>{errors.cpassword}</span>
