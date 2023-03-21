@@ -63,22 +63,22 @@ function Slider({ title }) {
         >
           {products.map((e) => {
             return (
-              <div className=" bg-white  my-2  border-1 rounded-xl  hover:border-transparent hover:shadow-xl relative duration-200 gap-4  border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[80%] ">
+              <div className=" bg-white  my-2  border-1 rounded-xl gap-2  hover:border-transparent hover:shadow-xl relative duration-200   border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[85%] ">
                 <div className="p-1">
                   <img
                     src={e.url}
-                    className=" w-52  h-64 object-contain"
+                    className="  w-48  h-64  sm:w-40 object-contain object-center rounded-md"
                     alt="product item"
                   />
                 </div>
-                <div className=" lg:text-lg text-ellipsis text-sm mb-2 justify-center text-center font-serif">
-                  <p className="text-xl tracking-tight">{e.title.shortTitle.substring(0, 8)}..</p>
+                <div className=" text-gray-100 lg:text-lg text-ellipsis text-sm mb-2 justify-center rounded-lg  w-full h-full bg-gray-800 text-center font-serif">
+                  <p className="text-xl  font-sans tracking-tight">{e.title.shortTitle.substring(0, 8)}..</p>
                   <p className="text-sm font-normal">
                     {e.tagline.substring(0, 20)}
                   </p>
                   <p className="text-md  font-semibold">{e.discount}</p>
                 </div>
-                <div class=" mb-3 flex items-center justify-between">
+                <div class=" flex items-center justify-center rounded-xl bg-gray-200 w-full h-full">
                   <p>
                     <span class="text-3xl font-bold ">${e.price.cost}</span>
                     <span class="text-sm  line-through">${e.price.mrp}</span>
