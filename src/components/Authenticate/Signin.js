@@ -20,7 +20,7 @@ const Signin = () => {
   };
 
   return (
-    <section className=" w-[100%] relative top-16 min-h-screen bg-white">
+    <section className=" w-[100%] relative  h-full bg-white">
       <div className="">
         <div className="">
           <img
