@@ -12,11 +12,11 @@ const Signup = () => {
   });
   const [errors, setError] = useState({});
 
-  const  handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError(Validation(updata))
-    }
-  
+    setError(Validation(updata));
+  };
+
   console.log(updata);
   const addData = (e) => {
     e.preventDefault();
@@ -41,7 +41,10 @@ const Signup = () => {
           />
         </div>
         <div className="flex flex-col items-center justify-center">
-          <form onSubmit={handleSubmit} className=" border-solid border-2 px-10 py-30 bg-white shadow-lg mt-[-60px] rounded-xl lg:w-3/12">
+          <form
+            onSubmit={handleSubmit}
+            className=" border-solid border-2 px-10 py-30 bg-white shadow-lg mt-[-60px] rounded-xl lg:w-3/12"
+          >
             <h1 className="  font-sans text-xl my-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
               Sign-Up
             </h1>
@@ -54,7 +57,9 @@ const Signup = () => {
                 name="name"
                 placeholder="Enter Name"
               />
-              
+              {errors.name && (
+                <span style={{ color: "red" }}>{errors.name}</span>
+              )}
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="email" className="mb-1 font-medium text-lg">
@@ -67,8 +72,9 @@ const Signup = () => {
                 name="email"
                 placeholder="Email address"
               />
-                            { errors.email && <span style={{color:'red'}}>{errors.email}</span>}
-
+              {errors.email && (
+                <span style={{ color: "red" }}>{errors.email}</span>
+              )}
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="email" className="mb-1 font-medium text-lg">
@@ -81,7 +87,9 @@ const Signup = () => {
                 name="mobile"
                 placeholder="Enter Mobile no"
               />
-              
+              {errors.mobile && (
+                <span style={{ color: "red" }}>{errors.mobile}</span>
+              )}
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="password" className="mb-1 font-medium text-md">
@@ -94,8 +102,9 @@ const Signup = () => {
                 placeholder="At least 6 char"
                 className="relative mb-2  p-2  border-2  outline-none rounded-md"
               ></input>
-                            { errors.email && <span style={{color:'red'}}>{errors.email}</span>}
-
+              {errors.password && (
+                <span style={{ color: "red" }}>{errors.password}</span>
+              )}
             </div>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
               <label htmlFor="password" className="mb-1 font-medium text-md">
@@ -108,6 +117,9 @@ const Signup = () => {
                 placeholder="Re-type Password"
                 className="relative mb-2  p-2  border-2  outline-none rounded-md"
               ></input>
+              {errors.cpassword && (
+                <span style={{ color: "red" }}>{errors.cpassword}</span>
+              )}
             </div>
             <button className=" inline-block font-medium bg-gradient-to-r from-[#f7dfa5] to-[#f0c14b]  p-2 rounded-sm mt-2 cursor-pointer border-2 border-[#9c7e31] border-solid mb-4 h-10 w-full   text-[#111] bg-[#f3d078] outline-none ">
               Continue

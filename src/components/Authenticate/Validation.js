@@ -15,6 +15,19 @@ const Validation = (value) => {
      }else if (value.password.length > 15) {
        errors.password = 'Password length exceeds 15 characters';
      }
+     if(!value.name){
+        errors.name = "Please Enter Your Name"
+      }
+      if (!value.mobile) {
+        errors.mobile = "Please Enter Your Mobile No"
+      }
+
+      if(!value.cpassword){
+        errors.cpassword = "Please Enter Confirm Password"
+      }
+    //   elseif(value.cpassword) {
+    //     errors.mobile = "Confirm Password and Original Password are not equal"
+    //   }
      return errors;
    };
 
