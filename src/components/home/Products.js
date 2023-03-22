@@ -1,9 +1,11 @@
 import { CircularProgress } from "@mui/material";
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Rating from "material-ui-rating";
+import { addToCart } from "../../redux/slice/cartSlice";
 
 const Products = () => {
+ const dispatch = useDispatch()
   const state = useSelector((state) => state);
   console.log("State", state.product.data);
 
@@ -28,8 +30,10 @@ const Products = () => {
                   src={e.image}
                   alt=""
                   className="w-52  h-64 object-contain"
-                  />
-                  <span className=" text-sm absolute capitalize italic top-2 right-2 text-gray-500">{e.category}</span>
+                />
+                <span className=" text-sm absolute capitalize italic top-2 right-2 text-gray-500">
+                  {e.category}
+                </span>
               </div>
               <div className=" px-4">
                 <div className=" flex gap-12 justify-between items-center">
@@ -44,17 +48,25 @@ const Products = () => {
                   {e.description.substring(0, 100)}...
                 </h1>
               </div>
-                <Rating
-                  value={e.rating.rate}
-                  max={5}
-                  name="size-large"
-                  onChange={(value) => console.log(`Rated with value ${value}`)}
-                />
-                <div className=" px-4">
-                <button className=" hover:bg-[#ec9615] border-2 border-gray-300 hover:border-black rounded-[5px] bg-[#FFD814] text-[#0F1111] hover:drop-shadow-xl w-full font-[14px] px-7 py-3">
-              Add to Cart
-            </button>
-                </div>
+              <Rating
+                value={e.rating.rate}
+                max={5}
+                name="size-large"
+                onChange={(value) => console.log(`Rated with value ${value}`)}
+              />
+              <div className=" px-4">
+                <button onClick={()=>dispatch(addToCart({
+                  id:e.id,
+                  title:e.title,
+                  price:e.price,
+                  description:e.description,
+                  image:e.image,
+                  category:e.category,
+                  quantity:1,
+                }))} className=" hover:bg-[#ec9615] border-2 border-gray-300 hover:border-black rounded-[5px] bg-[#FFD814] text-[#0F1111] hover:drop-shadow-xl w-full font-[14px] px-7 py-3">
+                  Add to Cart
+                </button>
+              </div>
             </div>
           );
         })}
