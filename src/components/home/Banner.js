@@ -9,6 +9,12 @@ function Banner() {
       autoPlay={true}
       animation="slide"
       indicators={false}
+      navButtonsWrapperProps={{   // Move the buttons to the bottom. Unsetting top here to override default style.
+        style: {
+            bottom: '0',
+            top: 'unset'
+        }
+    }} 
       navButtonsAlwaysVisible={false}
       cycleNavigation={true}
       navButtonsProps={{
@@ -18,18 +24,11 @@ function Banner() {
         },
       }}
     >
-        <img src= './assets/bannerImgFive.jpg' alt="" className=" object-cover" />
-        <img src= './assets/bannerImgFour.jpg' alt="" className="object-cover" />
-        <img src= './assets/bannerImgThree.jpg' alt="" className=" object-cover" />
-        <img src= './assets/bannerImgTwo.jpg' alt="" className="object-cover" />
-        <img src= './assets/bannerImgOne.jpg' alt="" className="object-cover" />
-      {/* {data.map((img, i) => {
-        return (
-          <>
-            <img src={img} alt="" className="w-[100vw] h-[380px] mt-2" />
-          </>
-        );
-      })} */}
+        <img src= './assets/bannerImgFive.jpg' alt="" className=" object-cover object-center" />
+        <img src= './assets/bannerImgFour.jpg' alt="" className="object-cover object-center" />
+        <img src= './assets/bannerImgThree.jpg' alt="" className=" object-cover object-center" />
+        <img src= './assets/bannerImgTwo.jpg' alt="" className="object-cover object-center" />
+        <img src= './assets/bannerImgOne.jpg' alt="" className="object-cover object-center" />
     </Carousel>
     </div>
   );
