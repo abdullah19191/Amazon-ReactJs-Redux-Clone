@@ -33,7 +33,7 @@ const Cart = () => {
                 <h3 className="font-[600] text-lg">
                   {e.title}
                 </h3>
-                  <span className="  font-[750] text-xl">${e.price}</span>
+                  <span className="  font-[750] text-xl">${e.price * e.quantity}</span>
                 </div>
                 <h3 className="font-[400] text-md">{e.description.substring(0, 120)}</h3>
                 <p className="mt-2 mb-2 text-[#c45500] text-md font-[500]">

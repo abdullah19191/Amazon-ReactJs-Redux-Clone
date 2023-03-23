@@ -13,7 +13,7 @@ const Option = (props) => {
           id=""
           className="border-2 rounded-2xl bg-slate-100 p-2 pr-4"
         >
-          <option value="1">{props.quantity}</option>
+          <option value={props.quantity}>{props.quantity}</option>
         </select>
         <button className=" bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-600 duration-300">
           Delete
@@ -21,7 +21,7 @@ const Option = (props) => {
       </div>
       <div className="">
         <Rating
-          value={props.quantity}
+          value={props.rating}
           max={5}
           name="size-large"
           onChange={(value) => console.log(`Rated with value ${value}`)}
