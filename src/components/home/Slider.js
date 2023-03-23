@@ -63,7 +63,7 @@ function Slider({ title }) {
         >
           {products.map((e) => {
             return (
-              <div className=" bg-white  my-2  border-1 rounded-xl gap-2  hover:border-transparent hover:shadow-xl relative duration-200   border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[85%] ">
+              <div key={e.id} className=" bg-white  my-2  border-1 rounded-xl gap-2  hover:border-transparent hover:shadow-xl relative duration-200   border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[85%] ">
                 <div className="p-1">
                   <img
                     src={e.url}
@@ -78,10 +78,10 @@ function Slider({ title }) {
                   </p>
                   <p className="text-md  font-semibold">{e.discount}</p>
                 </div>
-                <div class=" flex items-center justify-center rounded-xl bg-gray-200 w-full h-full">
+                <div className=" flex items-center justify-center rounded-xl bg-gray-200 w-full h-full">
                   <p>
-                    <span class="text-3xl font-bold ">${e.price.cost}</span>
-                    <span class="text-sm  line-through">${e.price.mrp}</span>
+                    <span className="text-3xl font-bold ">${e.price.cost}</span>
+                    <span className="text-sm  line-through">${e.price.mrp}</span>
                   </p>
                 </div>
               </div>
