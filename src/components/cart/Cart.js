@@ -1,11 +1,13 @@
 import { Divider } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { resetCart } from "../../redux/slice/cartSlice";
 import Option from "./Option";
 import RightAdds from "./RightAdds";
 
 
 const Cart = () => {
+   const  dispatch = useDispatch()
   const cartitems = useSelector((state) => state.cart.products)
   console.log(cartitems);
   const [totalPrice,setTotalPrice] = useState("")
@@ -27,8 +29,8 @@ const Cart = () => {
           </h5>
           <Divider />
             {cartitems.map((e)=>(
-          <div className="">
-              <div key={e.id} className="lg:flex  items-center p-4 gap-6 ">
+          <div key={e.id} className="">
+              <div  className="lg:flex  items-center p-4 gap-6 ">
               <div className=" lg:w-1/5">
                 <img
                  src={e.image}
@@ -56,7 +58,7 @@ const Cart = () => {
                   className=" cursor-pointer w-[20%] mb-3 "
                 />
                 <div className="">
-                  <Option rating={e.rating} quantity={e.quantity} />
+                  <Option rating={e.rating} quantity={e.quantity} id={e.id} />
                 </div>
               </div>
             </div>
@@ -64,7 +66,7 @@ const Cart = () => {
           </div>
             ))}
           <div className=" flex flex-col lg:flex-row justify-between p-2 items-center">
-            <button className=" bg-red-500 w-36 text-lg  py-2 font-semibold  rounded-lg text-white mt-2 hover:bg-red-600 duration-300">Clear Cart</button>
+            <button onClick={()=>dispatch(resetCart())} className=" bg-red-500 w-36 text-lg  py-2 font-semibold  rounded-lg text-white mt-2 hover:bg-red-600 duration-300">Clear Cart</button>
             <h3 className="font-semibold text-xl md:text-2xl ">
               Subtotal(1 items):<span className="font-[700]">${totalPrice}</span>
             </h3>

@@ -18,7 +18,7 @@ export const cartSlice = createSlice({
             }
         },
         deleteCart:(state,action)=>{
-            state.products = state.products.filter((item)=>item.id===action.id);
+            state.products = state.products.filter((item)=>item.id!==action.id);
         },
         resetCart:(state,action)=>{
             state.products=[]
