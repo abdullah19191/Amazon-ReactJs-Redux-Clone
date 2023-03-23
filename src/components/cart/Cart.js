@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import Option from "./Option";
 import RightAdds from "./RightAdds";
 
+
 const Cart = () => {
   const cartitems = useSelector((state) => state.cart.products)
   console.log(cartitems);
