@@ -28,8 +28,8 @@ const Cart = () => {
           <Divider />
             {cartitems.map((e)=>(
           <div className="">
-              <div key={e.id} className="md:flex  items-center p-4 gap-6 ">
-              <div className=" md:w-1/5">
+              <div key={e.id} className="lg:flex  items-center p-4 gap-6 ">
+              <div className=" lg:w-1/5">
                 <img
                  src={e.image}
                   alt=""
@@ -63,8 +63,9 @@ const Cart = () => {
             <Divider />
           </div>
             ))}
-          <div className=" flex justify-end p-2">
-            <h3 className="font-semibold text-2xl ">
+          <div className=" flex flex-col lg:flex-row justify-between p-2 items-center">
+            <button className=" bg-red-500 w-36 text-lg  py-2 font-semibold  rounded-lg text-white mt-2 hover:bg-red-600 duration-300">Clear Cart</button>
+            <h3 className="font-semibold text-xl md:text-2xl ">
               Subtotal(1 items):<span className="font-[700]">${totalPrice}</span>
             </h3>
           </div>
