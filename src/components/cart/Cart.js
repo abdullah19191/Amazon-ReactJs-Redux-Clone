@@ -14,7 +14,7 @@ const Cart = () => {
     let Total=0;
     cartitems.map((item)=>{
       Total += item.price * item.quantity;
-      return setTotalPrice(Total);
+      return setTotalPrice(Total.toFixed(2));
     })
   },[cartitems])
   return (
