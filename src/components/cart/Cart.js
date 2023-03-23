@@ -48,7 +48,7 @@ const Cart = () => {
                   className=" cursor-pointer w-[20%] mb-3 "
                 />
                 <div className="">
-                  <Option rating={e.rating.rate} quantity={e.quantity} />
+                  <Option rating={e.rating} quantity={e.quantity} />
                 </div>
               </div>
             </div>
