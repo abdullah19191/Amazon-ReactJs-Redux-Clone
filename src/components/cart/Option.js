@@ -4,9 +4,8 @@ import { useDispatch } from "react-redux";
 import { deleteCart } from "../../redux/slice/cartSlice";
 
 const Option = (props) => {
-  // console.log("Abaaaaaaaaaaay ma props:  ",props.rating.rate)
-  const dispatch = useDispatch()
-  
+    const dispatch = useDispatch();
+
   return (
     <div className="">
       <div className="flex md:space-x-5 space-x-2 items-center ">
@@ -17,7 +16,10 @@ const Option = (props) => {
         >
           <option value={props.quantity}>{props.quantity}</option>
         </select>
-        <button onClick={()=>dispatch(deleteCart(props.id))} className=" bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-600 duration-300">
+        <button
+          onClick={() => dispatch(deleteCart(props.id))}
+          className=" bg-red-500 w-36 py-1 rounded-lg text-white mt-2 hover:bg-red-600 duration-300"
+        >
           Delete
         </button>
       </div>
