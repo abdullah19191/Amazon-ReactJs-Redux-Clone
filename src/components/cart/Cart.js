@@ -10,7 +10,7 @@ const Cart = () => {
   console.log(cartitems);
 
   return (
-    <div className="w-full h-auto mb-9 md:h-[90vh] relative top-16">
+    <div className="w-full h-auto mb-9  relative top-16">
       <div className="flex flex-col-reverse md:flex-row mx-auto my-0 md:px-5 py-4 md:py-8 items-center md:justify-around w-[95%]">
         <div className="bg-white md:flex-[.88] flex-1  px-5 py-3 border-1 rounded-md mb-5 md:mb-0">
           <h1 className="font-bold text-3xl">Shopping Cart</h1>
@@ -18,37 +18,43 @@ const Cart = () => {
             Select All items
           </h5>
           <Divider />
-          <div className="md:flex py-4 pr-[5px] items-center justify-center">
-            <div className="justify-center md:justify-start flex md:flex-none">
-              <img
-                src="https://rukminim1.flixcart.com/image/300/300/kll7bm80/smartwatch/c/1/n/43-mo-sw-sense-500-android-ios-molife-original-imagyzyycnpujyjh.jpeg?q=70"
-                alt=""
-                className="md:w-[80%] w-36"
-              />
-            </div>
-            <div className="">
-              <h3 className="font-[600] text-lg">
-                Molife Sense 500 Smartwatch (Black Strap, Freesize)
-                <span className="  font-[750] text-xl">$786.88</span>
-              </h3>
-              <h3 className="font-[600] text-lg">Smart Watches</h3>
-              <p className="mt-2 mb-2 text-[#c45500] text-md font-[500]">
-                Usually dispatched in 8 days
-              </p>
-              <p className=" mb-4 text-md font-[500]">
-                Eligible for free Shipping
-              </p>
-              <img
-                src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px-2x._CB485942108_.png"
-                alt="logo"
-                className=" cursor-pointer w-[20%] mb-3 "
-              />
+            {cartitems.map((e)=>(
+          <div className="">
+              <div key={e.id} className="md:flex  items-center p-4 gap-6 ">
+              <div className=" md:w-1/5">
+                <img
+                 src={e.image}
+                  alt=""
+                  className=" w-full  h-44 object-contain"
+                />
+              </div>
               <div className="">
-                <Option />
+                <div className=" flex  items-center justify-between ">
+                <h3 className="font-[600] text-lg">
+                  {e.title}
+                </h3>
+                  <span className="  font-[750] text-xl">${e.price}</span>
+                </div>
+                <h3 className="font-[400] text-md">{e.description.substring(0, 120)}</h3>
+                <p className="mt-2 mb-2 text-[#c45500] text-md font-[500]">
+                  Usually dispatched in 8 days
+                </p>
+                <p className=" mb-4 text-md font-[500]">
+                  Eligible for free Shipping
+                </p>
+                <img
+                  src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px-2x._CB485942108_.png"
+                  alt="logo"
+                  className=" cursor-pointer w-[20%] mb-3 "
+                />
+                <div className="">
+                  <Option rating={e.rating.rate} quantity={e.quantity} />
+                </div>
               </div>
             </div>
+            <Divider />
           </div>
-          <Divider />
+            ))}
           <div className=" flex justify-end p-2">
             <h3 className="font-semibold text-2xl ">
               Subtotal(1 items):<span className="font-[700]">$786.88</span>
