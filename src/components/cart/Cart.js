@@ -1,5 +1,5 @@
 import { Divider } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Option from "./Option";
 import RightAdds from "./RightAdds";
@@ -8,7 +8,15 @@ import RightAdds from "./RightAdds";
 const Cart = () => {
   const cartitems = useSelector((state) => state.cart.products)
   console.log(cartitems);
-
+  const [totalPrice,setTotalPrice] = useState("")
+  
+  useEffect(()=>{
+    let Total=0;
+    cartitems.map((item)=>{
+      Total += item.price * item.quantity;
+      return setTotalPrice(Total);
+    })
+  },[cartitems])
   return (
     <div className="w-full h-auto mb-9  relative top-16">
       <div className="flex flex-col-reverse md:flex-row mx-auto my-0 md:px-5 py-4 md:py-8 items-center md:justify-around w-[95%]">
@@ -57,16 +65,16 @@ const Cart = () => {
             ))}
           <div className=" flex justify-end p-2">
             <h3 className="font-semibold text-2xl ">
-              Subtotal(1 items):<span className="font-[700]">$786.88</span>
+              Subtotal(1 items):<span className="font-[700]">${totalPrice}</span>
             </h3>
           </div>
         </div>
         <div className="md:w-auto w-full">
-          <RightAdds />
+          <RightAdds price={totalPrice} />
         </div>
       </div>
     </div>
   );
 };
-
+  
 export default Cart;

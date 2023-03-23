@@ -1,6 +1,6 @@
 import React from "react";
 
-const RightAdds = () => {
+const RightAdds = (props) => {
   return (
     <div className=" md:flex-[.2] border-1 rounded-md flex-1 mb-2">
       <img
@@ -19,7 +19,7 @@ const RightAdds = () => {
         <div className=" flex justify-center p-2">
           <h3 className="font-semibold text-2xl mt-6 text-gray-500">
             Subtotal(1 items):
-            <span className="font-[700] text-black">$786.88</span>
+            <span className="font-[700] text-black">${props.price}</span>
           </h3>
         </div>
         <div className="flex justify-center w-full p-2">
