@@ -1,9 +1,13 @@
 import { Divider } from "@mui/material";
 import React from "react";
+import { useSelector } from "react-redux";
 import Option from "./Option";
 import RightAdds from "./RightAdds";
 
-const cart = () => {
+const Cart = () => {
+  const cartitems = useSelector((state) => state.cart.products)
+  console.log(cartitems);
+
   return (
     <div className="w-full h-auto mb-9 md:h-[90vh] relative top-16">
       <div className="flex flex-col-reverse md:flex-row mx-auto my-0 md:px-5 py-4 md:py-8 items-center md:justify-around w-[95%]">
@@ -14,7 +18,7 @@ const cart = () => {
           </h5>
           <Divider />
           <div className="md:flex py-4 pr-[5px] items-center justify-center">
-            <div className="  justify-center md:justify-start flex md:flex-none">
+            <div className="justify-center md:justify-start flex md:flex-none">
               <img
                 src="https://rukminim1.flixcart.com/image/300/300/kll7bm80/smartwatch/c/1/n/43-mo-sw-sense-500-android-ios-molife-original-imagyzyycnpujyjh.jpeg?q=70"
                 alt=""
@@ -58,4 +62,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;
