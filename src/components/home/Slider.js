@@ -35,12 +35,14 @@ function Slider({ title }) {
       <div className="flex justify-between py-4 px-2 items-center">
         <h3 className="font-bold lg:text-xl text-md">{title}</h3>
         <Link to="/product/">
-        <button  onClick={(e) => dispatch(fetchProducts())} className="bg-blue-500 hover:bg-blue-700 text-white text-sm lg:text-lg font-bold py-2 px-4 rounded">
-          View All
-        </button>
+          <button
+            onClick={(e) => dispatch(fetchProducts())}
+            className="bg-blue-500 hover:bg-blue-700 text-white text-sm lg:text-lg font-bold py-2 px-4 rounded"
+          >
+            View All
+          </button>
         </Link>
-      </div>
-          {" "}
+      </div>{" "}
       <Divider />
       <div className="md:mt-8 mt-6">
         <Carousel
@@ -63,7 +65,10 @@ function Slider({ title }) {
         >
           {products.map((e) => {
             return (
-              <div key={e.id} className=" bg-white  my-2  border-1 rounded-xl gap-2  hover:border-transparent hover:shadow-xl relative duration-200   border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[85%] ">
+              <div
+                key={e.id}
+                className=" bg-white  my-2  border-1 rounded-xl gap-2  hover:border-transparent hover:shadow-xl relative duration-200   border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[85%] "
+              >
                 <div className="p-1">
                   <img
                     src={e.url}
@@ -72,7 +77,9 @@ function Slider({ title }) {
                   />
                 </div>
                 <div className=" text-gray-100 lg:text-lg text-ellipsis text-sm mb-2 justify-center rounded-lg  w-full h-full bg-gray-800 text-center font-serif">
-                  <p className="text-xl  font-sans tracking-tight">{e.title.shortTitle.substring(0, 8)}..</p>
+                  <p className="text-xl  font-sans tracking-tight">
+                    {e.title.shortTitle.substring(0, 8)}..
+                  </p>
                   <p className="text-sm font-normal">
                     {e.tagline.substring(0, 20)}
                   </p>
@@ -81,7 +88,9 @@ function Slider({ title }) {
                 <div className=" flex items-center justify-center rounded-xl bg-gray-200 w-full h-full">
                   <p>
                     <span className="text-3xl font-bold ">${e.price.cost}</span>
-                    <span className="text-sm  line-through">${e.price.mrp}</span>
+                    <span className="text-sm  line-through">
+                      ${e.price.mrp}
+                    </span>
                   </p>
                 </div>
               </div>
