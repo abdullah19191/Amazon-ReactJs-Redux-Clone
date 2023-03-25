@@ -9,9 +9,8 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import NavbarBottom from "./NavbarBottom";
 import { useSelector } from "react-redux";
 
-
 function Navbar() {
-  const cartitems = useSelector((state)=> state.cart.products)
+  const cartitems = useSelector((state) => state.cart.products);
   console.log(cartitems);
   return (
     <div className=" sticky top-0 z-50 ">
@@ -67,14 +66,17 @@ function Navbar() {
           <p className=" font-semibold -mt-1 text-sm">& Orders</p>
         </div>
         <Link to="/cart/">
-        <div className="">
-          <div className="cart_btn flex ml-5 mt-[2px] mr-[4px] items-center p-2 hover:text-lg justify-between border-transparent hover:border-white  border-2">
-            <Badge badgeContent={cartitems.length > 0 ? cartitems.length:0} color="primary">
-              <ShoppingCartIcon className="text-[#fff] " />
-            </Badge>
-            <p className="text-[#fff] font-medium text-sm mr-2">Cart</p>
+          <div className="">
+            <div className="cart_btn flex ml-5 mt-[2px] mr-[4px] items-center p-2 hover:text-lg justify-between border-transparent hover:border-white  border-2">
+              <Badge
+                badgeContent={cartitems.length > 0 ? cartitems.length : 0}
+                color="primary"
+              >
+                <ShoppingCartIcon className="text-[#fff] " />
+              </Badge>
+              <p className="text-[#fff] font-medium text-sm mr-2">Cart</p>
+            </div>
           </div>
-        </div>
         </Link>
       </div>
       <NavbarBottom />
