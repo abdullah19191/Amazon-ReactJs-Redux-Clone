@@ -17,7 +17,8 @@ const Signup = () => {
     cpassword: "",
   });
   const [errors, setError] = useState({});
-
+  const [firebaseErr, setFirebaseErr] = useState({});
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(Validation(updata));
@@ -37,6 +38,9 @@ const Signup = () => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log("Firebase ma error ha bhai: ", error);
+        if(errorCode.includes("auth/email-already-in-use")){
+          setFirebaseErr("Email Already in use , Try anoher one")
+        }
 
         // ..
       });
