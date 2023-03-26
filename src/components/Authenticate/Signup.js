@@ -21,10 +21,11 @@ const Signup = () => {
   const [firebaseErr, setFirebaseErr] = useState("");
   const [loading,setLoading] = useState("");
   const [successMsg,setSuccessMsg] = useState("") 
-   
+
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(Validation(updata));
+    loading(true)
     createUserWithEmailAndPassword(auth, updata.email, updata.password)
       .then((userCredential) => {
         updateProfile(auth.currentUser, {
@@ -34,6 +35,8 @@ const Signup = () => {
         });
         // Signed in
         const user = userCredential.user;
+        setLoading(false)
+        setSuccessMsg("Account Created Successfully")
         console.log("Firebase ho: ", user);
         // ...
       })
