@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Validation from "./Validation";
-import { getAuth, createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 
 const Signup = () => {
   const auth = getAuth();
@@ -18,22 +22,24 @@ const Signup = () => {
     e.preventDefault();
     setError(Validation(updata));
     createUserWithEmailAndPassword(auth, updata.email, updata.password)
-  .then((userCredential) => {
-    updateProfile(auth.currentUser, {
-      displayName: updata.name, photoURL: "https://sm.ign.com/ign_pk/cover/a/avatar-gen/avatar-generations_rpge.jpg"
-    })  
-    // Signed in 
-    const user = userCredential.user;
-    console.log("Firebase ho: ",user)
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    console.log("Firebase ma error ha bhai: ",error)
+      .then((userCredential) => {
+        updateProfile(auth.currentUser, {
+          displayName: updata.name,
+          photoURL:
+            "https://sm.ign.com/ign_pk/cover/a/avatar-gen/avatar-generations_rpge.jpg",
+        });
+        // Signed in
+        const user = userCredential.user;
+        console.log("Firebase ho: ", user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("Firebase ma error ha bhai: ", error);
 
-    // ..
-  });
+        // ..
+      });
   };
 
   console.log(updata);
