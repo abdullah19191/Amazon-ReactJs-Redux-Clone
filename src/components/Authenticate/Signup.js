@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Validation from "./Validation";
 import Alert from '@mui/material/Alert';
+import { RoatatingLines } from 'react-loader-spinner'
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -162,6 +163,20 @@ const Signup = () => {
             <button className=" inline-block font-medium bg-gradient-to-r from-[#f7dfa5] to-[#f0c14b]  p-2 rounded-sm mt-2 cursor-pointer border-2 border-[#9c7e31] border-solid mb-4 h-10 w-full   text-[#111] bg-[#f3d078] outline-none ">
               Continue
             </button>
+             {
+              loading && (
+                <div className="">
+                  
+                  <RoatatingLines
+  strokeColor="grey"
+  strokeWidth="5"
+  animationDuration="0.75"
+  width="96"
+  visible={true}
+/>
+                </div>
+              )
+             }
             <div className="flex">
               <p className="mt-2 mb-2 pt-1 text-md font-semibold space-x-3">
                 Already have an account?
