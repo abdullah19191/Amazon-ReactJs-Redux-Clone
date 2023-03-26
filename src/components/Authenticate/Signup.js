@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Validation from "./Validation";
 import Alert from '@mui/material/Alert';
 import {
@@ -9,6 +9,7 @@ import {
 } from "firebase/auth";
 
 const Signup = () => {
+  const navigate = useNavigate()
   const auth = getAuth();
   const [updata, setData] = useState({
     name: "",
@@ -37,6 +38,9 @@ const Signup = () => {
         const user = userCredential.user;
         setLoading(false)
         setSuccessMsg("Account Created Successfully")
+        setTimeout(()=>{
+          navigate("/login")
+        },3000)
         console.log("Firebase ho: ", user);
         // ...
       })
