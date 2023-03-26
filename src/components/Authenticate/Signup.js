@@ -28,7 +28,8 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(Validation(updata));
-    setFirebaseErr("");
+  
+      setFirebaseErr("");
     setLoading(true);
     createUserWithEmailAndPassword(auth, updata.email, updata.password)
       .then((userCredential) => {
@@ -54,9 +55,9 @@ const Signup = () => {
           setLoading(false);
           setFirebaseErr("Email Already in use,Try anoher one");
         }
-
         // ..
       });
+    
   };
 
   console.log(updata);
@@ -87,7 +88,7 @@ const Signup = () => {
             onSubmit={handleSubmit}
             className=" border-solid border-2 px-10 py-30 bg-white shadow-lg mt-[-60px] rounded-xl lg:w-3/12"
           >
-            <h1 className="  font-sans text-xl my-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            <h1 className="  font-sans text-xl my-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Sign-Up
             </h1>
             <div className="flex flex-col lg:w-11/12 w-[110%]">

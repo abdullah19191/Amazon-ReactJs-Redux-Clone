@@ -39,7 +39,7 @@ const Signin = () => {
         </div>
         <div className="flex flex-col items-center justify-center">
           <form onSubmit={handleSubmit} className=" border-solid border-2 px-10 py-30 bg-white shadow-lg mt-[-50px] rounded-xl lg:w-3/12">
-            <h1 className="  font-sans text-xl my-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+            <h1 className="  font-sans text-xl my-4 font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
               Sign-In
             </h1>
             <div className="flex flex-col lg:w-11/12 w-[110%]">
