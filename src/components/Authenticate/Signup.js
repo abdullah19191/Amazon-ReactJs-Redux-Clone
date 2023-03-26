@@ -19,7 +19,9 @@ const Signup = () => {
   });
   const [errors, setError] = useState({});
   const [firebaseErr, setFirebaseErr] = useState("");
-  
+  const [loading,setLoading] = useState("");
+  const [successMsg,setSuccessMsg] = useState("") 
+   
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(Validation(updata));
