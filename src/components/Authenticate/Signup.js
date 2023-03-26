@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Validation from "./Validation";
+import Alert from '@mui/material/Alert';
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -17,7 +18,7 @@ const Signup = () => {
     cpassword: "",
   });
   const [errors, setError] = useState({});
-  const [firebaseErr, setFirebaseErr] = useState({});
+  const [firebaseErr, setFirebaseErr] = useState("");
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -36,10 +37,9 @@ const Signup = () => {
       })
       .catch((error) => {
         const errorCode = error.code;
-        const errorMessage = error.message;
         console.log("Firebase ma error ha bhai: ", error);
         if(errorCode.includes("auth/email-already-in-use")){
-          setFirebaseErr("Email Already in use , Try anoher one")
+          setFirebaseErr("Email Already in use,Try anoher one")
         }
 
         // ..
@@ -157,12 +157,23 @@ const Signup = () => {
               <p className="mt-2 mb-2 pt-1 text-md font-semibold space-x-3">
                 Already have an account?
               </p>
+              
               <NavLink
                 to="/login"
                 className="mx-2 mt-2 mb-2 pt-1 text-md font-semibold space-x-3 text-blue-600"
               >
                 SignIn
               </NavLink>
+             
+            </div>
+            <div className="p-2">
+            {firebaseErr && (
+                <Alert   severity="error">
+                <strong>
+                {firebaseErr}
+                  </strong>  
+                   </Alert>
+              )}
             </div>
           </form>
         </div>
