@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Validation from "./Validation";
-import Alert from '@mui/material/Alert';
-import { RoatatingLines } from 'react-loader-spinner'
+import Alert from "@mui/material/Alert";
+import { motion } from "framer-motion";
+import { RotatingLines } from "react-loader-spinner";
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,7 +11,7 @@ import {
 } from "firebase/auth";
 
 const Signup = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const auth = getAuth();
   const [updata, setData] = useState({
     name: "",
@@ -21,13 +22,14 @@ const Signup = () => {
   });
   const [errors, setError] = useState({});
   const [firebaseErr, setFirebaseErr] = useState("");
-  const [loading,setLoading] = useState("");
-  const [successMsg,setSuccessMsg] = useState("") 
+  const [loading, setLoading] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setError(Validation(updata));
-    loading(true)
+    setFirebaseErr("");
+    setLoading(true);
     createUserWithEmailAndPassword(auth, updata.email, updata.password)
       .then((userCredential) => {
         updateProfile(auth.currentUser, {
@@ -37,19 +39,20 @@ const Signup = () => {
         });
         // Signed in
         const user = userCredential.user;
-        setLoading(false)
-        setSuccessMsg("Account Created Successfully")
-        setTimeout(()=>{
-          navigate("/login")
-        },3000)
+        setLoading(false);
+        setSuccessMsg("Account Created Successfully");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
         console.log("Firebase ho: ", user);
         // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         console.log("Firebase ma error ha bhai: ", error);
-        if(errorCode.includes("auth/email-already-in-use")){
-          setFirebaseErr("Email Already in use,Try anoher one")
+        if (errorCode.includes("auth/email-already-in-use")) {
+          setLoading(false);
+          setFirebaseErr("Email Already in use,Try anoher one");
         }
 
         // ..
@@ -163,40 +166,46 @@ const Signup = () => {
             <button className=" inline-block font-medium bg-gradient-to-r from-[#f7dfa5] to-[#f0c14b]  p-2 rounded-sm mt-2 cursor-pointer border-2 border-[#9c7e31] border-solid mb-4 h-10 w-full   text-[#111] bg-[#f3d078] outline-none ">
               Continue
             </button>
-             {
-              loading && (
-                <div className="">
-                  
-                  <RoatatingLines
-  strokeColor="grey"
-  strokeWidth="5"
-  animationDuration="0.75"
-  width="96"
-  visible={true}
-/>
-                </div>
-              )
-             }
+            {loading && (
+              <div className=" flex justify-center">
+                <RotatingLines
+                  strokeColor="grey"
+                  strokeWidth="5"
+                  animationDuration="0.75"
+                  width="96"
+                  visible={true}
+                />
+              </div>
+            )}
+            {successMsg && (
+              <div className="">
+                <motion.p
+                  initial={{ x: -500, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className=" text-green-600 font-bold text-md p-2 border-2 font-sans border-green-500"
+                >
+                  {successMsg}
+                </motion.p>
+              </div>
+            )}
             <div className="flex">
               <p className="mt-2 mb-2 pt-1 text-md font-semibold space-x-3">
                 Already have an account?
               </p>
-              
+
               <NavLink
                 to="/login"
                 className="mx-2 mt-2 mb-2 pt-1 text-md font-semibold space-x-3 text-blue-600"
               >
                 SignIn
               </NavLink>
-             
             </div>
             <div className="p-2">
-            {firebaseErr && (
-                <Alert   severity="error">
-                <strong>
-                {firebaseErr}
-                  </strong>  
-                   </Alert>
+              {firebaseErr && (
+                <Alert severity="error">
+                  <strong>{firebaseErr}</strong>
+                </Alert>
               )}
             </div>
           </form>
