@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import Validation from "./Validation";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Signin = () => {
+  const auth = getAuth();
+
   const [logdata, setData] = useState({
     email: "",
     password: "",
@@ -23,6 +26,17 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    signInWithEmailAndPassword(auth, logdata.email, logdata.password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      console.log(user)
+      // ...
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage,errorCode)
+    });
     setError(Validation(logdata));
   };
 
@@ -50,7 +64,7 @@ const Signin = () => {
               </label>
               <input
                 type="text"
-                class="relative mb-2 p-2 border-2 outline-none rounded-md focus:border-orange-500"
+                className="relative mb-2 p-2 border-2 outline-none rounded-md focus:border-orange-500"
                 name="email"
                 onChange={addData}
                 value={logdata.email}
@@ -70,7 +84,7 @@ const Signin = () => {
                 onChange={addData}
                 value={logdata.password}
                 placeholder="At least 6 char"
-                class="relative mb-2  p-2  border-2  outline-none rounded-md focus:border-orange-500"
+                className="relative mb-2  p-2  border-2  outline-none rounded-md focus:border-orange-500"
               ></input>
               {errors.password && (
                 <span style={{ color: "red" }}>{errors.password}</span>

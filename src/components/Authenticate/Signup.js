@@ -27,9 +27,7 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(Validation(updata));
-  
-      setFirebaseErr("");
+    setFirebaseErr("");
     setLoading(true);
     createUserWithEmailAndPassword(auth, updata.email, updata.password)
       .then((userCredential) => {
@@ -57,8 +55,9 @@ const Signup = () => {
         }
         // ..
       });
-    
-  };
+      
+      setError(Validation(updata));
+    };
 
   console.log(updata);
   const addData = (e) => {
