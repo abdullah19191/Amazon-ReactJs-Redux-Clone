@@ -39,8 +39,8 @@ const Signin = () => {
         setLoading(false)
         setSuccessMsg("Logged in Successfully! Welcome back");
         setTimeout(() => {
-          navigate("/login");
-        }, 3000);
+          navigate("/");
+        }, 2000);
         // ...
       }).catch((error) => {
         const errorCode = error.code;
