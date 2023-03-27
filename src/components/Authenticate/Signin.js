@@ -29,27 +29,27 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(logdata.email&& logdata.password){
-      setLoading(true)
+    if (logdata.email && logdata.password) {
+      setLoading(true);
       signInWithEmailAndPassword(auth, logdata.email, logdata.password)
-      .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        console.log(user)
-        setLoading(false)
-        setSuccessMsg("Logged in Successfully! Welcome back");
-        setTimeout(() => {
-          navigate("/");
-        }, 2000);
-        // ...
-      }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log(errorMessage,errorCode)
-      });
-  
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          setLoading(false);
+          setSuccessMsg("Logged in Successfully! Welcome back");
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorMessage, errorCode);
+        });
     }
-        setError(Validation(logdata));
+    setError(Validation(logdata));
   };
 
   return (
