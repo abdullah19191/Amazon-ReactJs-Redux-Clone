@@ -5,12 +5,14 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const Signin = () => {
   const auth = getAuth();
-
   const [logdata, setData] = useState({
     email: "",
     password: "",
   });
   const [errors, setError] = useState({});
+  const [firebaseErr, setFirebaseErr] = useState("");
+  const [loading, setLoading] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const addData = (e) => {
     const { name, value } = e.target;
@@ -26,18 +28,22 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, logdata.email, logdata.password)
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      console.log(user)
-      // ...
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorMessage,errorCode)
-    });
-    setError(Validation(logdata));
+    if(logdata.email&& logdata.password){
+      setLoading(true)
+      signInWithEmailAndPassword(auth, logdata.email, logdata.password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        console.log(user)
+        // ...
+      }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorMessage,errorCode)
+      });
+  
+    }
+        setError(Validation(logdata));
   };
 
   return (
