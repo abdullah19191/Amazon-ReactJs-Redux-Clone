@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import Validation from "./Validation";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const auth = getAuth();
+  const navigate = useNavigate();
   const [logdata, setData] = useState({
     email: "",
     password: "",
@@ -35,6 +36,11 @@ const Signin = () => {
         // Signed in 
         const user = userCredential.user;
         console.log(user)
+        setLoading(false)
+        setSuccessMsg("Logged in Successfully! Welcome back");
+        setTimeout(() => {
+          navigate("/login");
+        }, 3000);
         // ...
       }).catch((error) => {
         const errorCode = error.code;
