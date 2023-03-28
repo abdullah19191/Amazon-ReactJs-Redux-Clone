@@ -114,9 +114,9 @@ const Cart = () => {
                 with books, electronics, videos, etc. make it happy.
               </p>
               <Link to="/product/">
-              <button className="font-bold hover:bg-[#ec9615] hover:border-2 text-lg  hover:border-black rounded-[5px] bg-[#FFD814] text-[#0F1111] hover:drop-shadow-xl w-72    px-7 py-3">
-                Continue Shopping{" "}
-              </button>
+                <button className="font-bold hover:bg-[#ec9615] hover:border-2 text-lg  hover:border-black rounded-[5px] bg-[#FFD814] text-[#0F1111] hover:drop-shadow-xl w-72    px-7 py-3">
+                  Continue Shopping{" "}
+                </button>
               </Link>
             </div>
           </div>
