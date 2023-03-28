@@ -55,9 +55,9 @@ const Signup = () => {
         }
         // ..
       });
-      
-      setError(Validation(updata));
-    };
+
+    setError(Validation(updata));
+  };
 
   console.log(updata);
   const addData = (e) => {
