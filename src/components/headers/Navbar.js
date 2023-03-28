@@ -53,19 +53,27 @@ function Navbar() {
         </div>
         <div className="headerHover  flex-col items-start justify-center mr-0 md:mr-3 py-1">
           <Link to="/login">
-            {
-              userInfo? (
-                <p className=" text-xs font-medium text-gray-100 ">{userInfo.userName.substring(0,14)}
-                <p className="text-sm font-medium text-[#fff] ">Accounts & Lists</p>
+            {userInfo ? (
+              <>
+                <p className=" text-xs font-medium text-gray-100 ">
+                  {userInfo.userName}
                 </p>
-              ):(
-                <><p className=" text-sm font-medium text-[#fff] ">Hellow, Sign in</p><p className=" font-semibold -mt-1 text-sm">
-                    <span>
-                      <ArrowDropDownIcon />
-                    </span>
-                  </p></>
-              )
-            }
+                <p className="text-sm font-medium text-[#fff] ">
+                  Accounts & Lists
+                </p>
+              </>
+            ) : (
+              <>
+                <p className=" text-sm font-medium text-[#fff] ">
+                  Hellow, Sign in
+                </p>
+                <p className=" font-semibold -mt-1 text-sm">
+                  <span>
+                    <ArrowDropDownIcon />
+                  </span>
+                </p>
+              </>
+            )}
             {/* <a href="#lll" className="text-[#fff] font-medium mr-2 border-2 border-[#131921] p-[8px] hover:border-white hover:border-current rounded-sm" >Sign in</a> */}
           </Link>
         </div>
