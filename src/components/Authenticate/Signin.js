@@ -5,8 +5,11 @@ import { NavLink, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import { motion } from "framer-motion";
 import { RotatingLines } from "react-loader-spinner";
+import { useDispatch } from "react-redux";
+import { setUserinfo } from "../../redux/slice/cartSlice";
 
 const Signin = () => {
+  const dispatch = useDispatch();
   const auth = getAuth();
   const navigate = useNavigate();
   const [logdata, setData] = useState({
@@ -38,6 +41,12 @@ const Signin = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
+          dispatch(setUserinfo({
+          _id:user.uid,
+          userName:user.displayName,
+          email:user.email,
+          image:user.photoURL
+          }))
           console.log(user);
           setLoading(false);
           setSuccessMsg("Logged in Successfully! Welcome back");
