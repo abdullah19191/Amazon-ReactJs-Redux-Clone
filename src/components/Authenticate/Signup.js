@@ -53,8 +53,7 @@ const Signup = () => {
           setLoading(false);
           setFirebaseErr("Email Already in use,Try anoher one");
         }
-        setData("")
-        // ..
+   
       });
 
     setError(Validation(updata));
@@ -170,10 +169,10 @@ const Signup = () => {
             {loading && (
               <div className=" flex justify-center">
                 <RotatingLines
-                  strokeColor="grey"
-                  strokeWidth="5"
+                  strokeColor="orange"
+                  strokeWidth="6"
                   animationDuration="0.75"
-                  width="96"
+                  width="66"
                   visible={true}
                 />
               </div>

@@ -3,6 +3,8 @@ import Validation from "./Validation";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
+import { motion } from "framer-motion";
+import { RotatingLines } from "react-loader-spinner";
 
 const Signin = () => {
   const auth = getAuth();
@@ -54,7 +56,8 @@ const Signin = () => {
             setError("Wrong Password! Try again")
           }
           console.log("Something is up, Try with correct Credentials");
-          setFirebaseErr("Please Re-Enter Credentials!");
+          setLoading(false);
+          setFirebaseErr("Wrong credentials, Please Re-Enter Credentials!");
           setData({email:"",password:""})
         });
     }
@@ -114,6 +117,17 @@ const Signin = () => {
             <button className=" inline-block font-medium bg-gradient-to-r from-[#f7dfa5] to-[#f0c14b]  p-2 rounded-sm mt-2 cursor-pointer border-2 border-[#9c7e31] border-solid mb-7 h-10 w-full   text-[#111] bg-[#f3d078] outline-none ">
               Continue
             </button>
+            {loading && (
+              <div className=" flex justify-center">
+                <RotatingLines
+                  strokeColor="orange"
+                  strokeWidth="6"
+                  animationDuration="0.75"
+                  width="66"
+                  visible={true}
+                />
+              </div>
+            )}
           </form>
           <p className="mt-2 mb-2 pt-1 text-md font-semibold space-x-3">
             New To Amazon?
@@ -123,14 +137,27 @@ const Signin = () => {
               Register
             </button>
           </NavLink>
-        </div>
+
         <div className="p-2">
               {firebaseErr && (
                 <Alert severity="error">
                   <strong className="text-center">{firebaseErr}</strong>
                 </Alert>
               )}
+              {successMsg && (
+              <div className="">
+                <motion.p
+                  initial={{ x: -500, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5 }}
+                  className=" text-green-600 font-bold text-md p-2 border-2 font-sans border-green-500"
+                >
+                  {successMsg}
+                </motion.p>
+              </div>
+            )}
             </div>
+        </div>
       </div>
     </section>
   );
