@@ -46,7 +46,16 @@ const Signin = () => {
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log(errorMessage, errorCode);
+          if (errorCode.includes("auth/email-already-in-use")) {
+            setLoading(false);
+            setError("Invalid Email")
+          } if (errorCode.includes("auth/wrong-password")) {
+            setLoading(false);
+            setError("Wrong Password! Try again")
+          }
+          console.log("Something is up, Try with correct Credentials");
+          setFirebaseErr("Re-Enter Credentials");
+          setData("")
         });
     }
     setError(Validation(logdata));

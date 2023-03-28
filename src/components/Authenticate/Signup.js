@@ -53,6 +53,7 @@ const Signup = () => {
           setLoading(false);
           setFirebaseErr("Email Already in use,Try anoher one");
         }
+        setData("")
         // ..
       });
 
