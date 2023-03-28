@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Validation from "./Validation";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { NavLink, useNavigate } from "react-router-dom";
+import Alert from "@mui/material/Alert";
 
 const Signin = () => {
   const auth = getAuth();
@@ -45,7 +46,6 @@ const Signin = () => {
         })
         .catch((error) => {
           const errorCode = error.code;
-          const errorMessage = error.message;
           if (errorCode.includes("auth/email-already-in-use")) {
             setLoading(false);
             setError("Invalid Email")
@@ -54,8 +54,8 @@ const Signin = () => {
             setError("Wrong Password! Try again")
           }
           console.log("Something is up, Try with correct Credentials");
-          setFirebaseErr("Re-Enter Credentials");
-          setData("")
+          setFirebaseErr("Please Re-Enter Credentials!");
+          setData({email:"",password:""})
         });
     }
     setError(Validation(logdata));
@@ -124,6 +124,13 @@ const Signin = () => {
             </button>
           </NavLink>
         </div>
+        <div className="p-2">
+              {firebaseErr && (
+                <Alert severity="error">
+                  <strong className="text-center">{firebaseErr}</strong>
+                </Alert>
+              )}
+            </div>
       </div>
     </section>
   );
