@@ -11,7 +11,9 @@ import { useSelector } from "react-redux";
 
 function Navbar() {
   const cartitems = useSelector((state) => state.cart.products);
+  const userInfo = useSelector((state) => state.cart.userinfo);
   console.log(cartitems);
+  console.log(userInfo);
   return (
     <div className=" sticky top-0 z-50 ">
       <div className="w-full bg-[#131921] text-white  px-4 py-3  flex-wrap justify-between mx-auto flex items-center">
@@ -51,13 +53,19 @@ function Navbar() {
         </div>
         <div className="headerHover  flex-col items-start justify-center mr-0 md:mr-3 py-1">
           <Link to="/login">
-            <p className=" text-xs font-light text-[#fff] ">Hi, Sign in</p>
-            <p className=" font-semibold -mt-1 text-sm">
-              {/* Accounts & Lists{" "} */}
-              <span>
-                <ArrowDropDownIcon />
-              </span>
-            </p>
+            {
+              userInfo? (
+                <p className=" text-xs font-medium text-gray-100 ">{userInfo.userName.substring(0,14)}
+                <p className="text-sm font-medium text-[#fff] ">Accounts & Lists</p>
+                </p>
+              ):(
+                <><p className=" text-sm font-medium text-[#fff] ">Hellow, Sign in</p><p className=" font-semibold -mt-1 text-sm">
+                    <span>
+                      <ArrowDropDownIcon />
+                    </span>
+                  </p></>
+              )
+            }
             {/* <a href="#lll" className="text-[#fff] font-medium mr-2 border-2 border-[#131921] p-[8px] hover:border-white hover:border-current rounded-sm" >Sign in</a> */}
           </Link>
         </div>
