@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import NavbarBottom from "./NavbarBottom";
 import { useSelector } from "react-redux";
-import LogoutIcon from '@mui/icons-material/Logout';
+import LogoutIcon from "@mui/icons-material/Logout";
 import Logout from "@mui/icons-material/Logout";
 
 function Navbar() {
@@ -98,7 +98,7 @@ function Navbar() {
         </Link>
         {userInfo && (
           <div className=" flex flex-col justify-center item-senter headerHover ">
-              <Logout/>
+            <Logout />
             <p className="hidden md:flex  text-xs font-semibold">Log Out</p>
           </div>
         )}
