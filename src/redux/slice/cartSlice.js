@@ -39,6 +39,9 @@ export const cartSlice = createSlice({
     },
     setUserinfo:(state , action) => {
       state.userinfo = action.payload 
+    },
+    userSignOut:(state)=>{
+      state.userinfo=null;
     }
   },
 });
@@ -49,7 +52,8 @@ export const {
   resetCart,
   incrementQuantity,
   decrementQuantity,
-  setUserinfo
+  setUserinfo,
+  userSignOut
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
