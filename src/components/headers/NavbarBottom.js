@@ -7,12 +7,13 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchProducts } from "../../redux/slice/productslice";
+import { useSelector } from "react-redux";
 
 const NavbarBottom = () => {
   const dispatch = useDispatch();
   const ref = useRef();
   const [sidebar, setSidebar] = useState(false);
-
+  const userInfo = useSelector((state) => state.cart.userinfo);
   useEffect(() => {
     document.body.addEventListener("click", (e) => {
       if (e.target.contains(ref.current)) {
@@ -54,7 +55,9 @@ const NavbarBottom = () => {
               className=" bg-white sm:w-[350px] w-[80%] h-full border border-black"
             >
               <div className=" w-full bg-[#131921] text-white py-4 px-6 flex items-center gap-4 text-lg ">
-                <AccountCircleIcon />
+                {userInfo ? (<img className=" w-10 h-10 rounded-full" src={userInfo.image} alt=""/>): (
+                                  <AccountCircleIcon />
+                )}
                 <h1 className=" font-bold text-md tracking-wide">
                   Hellow, Sign In
                 </h1>
