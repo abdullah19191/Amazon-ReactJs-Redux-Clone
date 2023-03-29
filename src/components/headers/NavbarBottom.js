@@ -59,7 +59,7 @@ const NavbarBottom = () => {
                                   <AccountCircleIcon />
                 )}
                 <h1 className=" font-bold text-md tracking-wide">
-                  Hellow, Sign In
+                  {userInfo ? (userInfo.userName):("Hi Sign in")}
                 </h1>
               </div>
               <SidebarNav />
