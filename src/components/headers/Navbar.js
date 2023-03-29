@@ -7,15 +7,26 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import NavbarBottom from "./NavbarBottom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Logout from "@mui/icons-material/Logout";
+import { getAuth, signOut } from "firebase/auth";
+import { userSignOut } from "../../redux/slice/cartSlice";
 
 function Navbar() {
+  const auth = getAuth();
+  const dispatch = useDispatch()
   const cartitems = useSelector((state) => state.cart.products);
   const userInfo = useSelector((state) => state.cart.userinfo);
   console.log(cartitems);
   console.log(userInfo);
+  const handlLogout=()=>{
+    signOut(auth).then(() => {
+      dispatch(userSignOut())
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   return (
     <div className=" sticky top-0 z-50 ">
       <div className="w-full bg-[#131921] text-white  px-4 py-3  flex-wrap justify-between mx-auto flex items-center">
@@ -97,8 +108,8 @@ function Navbar() {
           </div>
         </Link>
         {userInfo && (
-          <div className=" flex flex-col justify-center item-senter headerHover ">
-            <Logout />
+          <div onClick={handlLogout} className=" flex flex-col justify-center item-senter headerHover ">
+              <LogoutIcon/>
             <p className="hidden md:flex  text-xs font-semibold">Log Out</p>
           </div>
         )}
