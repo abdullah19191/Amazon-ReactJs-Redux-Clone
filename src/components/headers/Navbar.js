@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import NavbarBottom from "./NavbarBottom";
 import { useSelector } from "react-redux";
+import LogoutIcon from '@mui/icons-material/Logout';
+import Logout from "@mui/icons-material/Logout";
 
 function Navbar() {
   const cartitems = useSelector((state) => state.cart.products);
@@ -94,6 +96,12 @@ function Navbar() {
             </div>
           </div>
         </Link>
+        {userInfo && (
+          <div className=" flex flex-col justify-center item-senter headerHover ">
+              <Logout/>
+            <p className="hidden md:flex  text-xs font-semibold">Log Out</p>
+          </div>
+        )}
       </div>
       <NavbarBottom />
     </div>
