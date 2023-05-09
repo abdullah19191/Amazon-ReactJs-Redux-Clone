@@ -113,6 +113,7 @@ function Navbar() {
             <p className="hidden md:flex  text-xs font-semibold">Log Out</p>
           </div>
         )}
+       
       </div>
       <NavbarBottom />
     </div>

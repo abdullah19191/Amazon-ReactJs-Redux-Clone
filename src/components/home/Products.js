@@ -65,13 +65,28 @@ const Products = () => {
                   rating:e.rating.rate,
                   category:e.category,
                   quantity:1,
-                }))} className=" hover:bg-[#ec9615] border-2 border-gray-300 hover:border-black rounded-[5px] bg-[#FFD814] text-[#0F1111] hover:drop-shadow-xl w-full font-[14px] px-7 py-3">
+                })) &toast.success(`${e.title.substring(0,20)} is added`) 
+                } className=" hover:bg-[#ec9615] border-2 border-gray-300 hover:border-black rounded-[5px] bg-[#FFD814] text-[#0F1111] hover:drop-shadow-xl w-full font-[14px] px-7 py-3">
                   Add to Cart
                 </button>
               </div>
             </div>
           );
         })}
+        <div className="">
+        <ToastContainer 
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        />
+        </div>
     </div>
   );
 };

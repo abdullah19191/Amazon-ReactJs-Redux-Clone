@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { fetchProducts } from "../../redux/slice/productslice";
 
+import { addToCart } from "../../redux/slice/cartSlice";
+import { ToastContainer, toast } from 'react-toastify';
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -29,7 +31,6 @@ const responsive = {
 };
 function Slider({ title }) {
   const dispatch = useDispatch();
-
   return (
     <div className="bg-white lg:py-4 border-2 border-solid my-6 lg:mx-4 shadow-lg lg:rounded border-t-4 border-l-4 border-r-4">
       <div className="flex justify-between py-4 px-2 items-center">
@@ -67,6 +68,16 @@ function Slider({ title }) {
             return (
               <div
                 key={e.id}
+                onClick={()=>dispatch(addToCart({
+                  id:e.id,
+                  title:e.title.shortTitle,
+                  price:e.price.cost,
+                  description:e.tagline,
+                  image:e.url,
+                  rating:4,
+                  category:e.tagline,
+                  quantity:1,
+                })) &toast.success(`${e.title.shortTitle} is added`)}
                 className=" bg-white  my-2  border-1 rounded-xl gap-2  hover:border-transparent hover:shadow-xl relative duration-200   border-gray-700 z-30 shadow flex flex-col items-center justify-center w-[85%] "
               >
                 <div className="p-1">
@@ -98,6 +109,18 @@ function Slider({ title }) {
           })}
         </Carousel>
       </div>
+      <ToastContainer 
+        position="top-left"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        />
     </div>
   );
 }
