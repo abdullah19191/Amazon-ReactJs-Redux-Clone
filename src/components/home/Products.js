@@ -3,7 +3,8 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "material-ui-rating";
 import { addToCart } from "../../redux/slice/cartSlice";
-
+import { ToastContainer, toast } from 'react-toastify';
+  
 const Products = () => {
  const dispatch = useDispatch()
   const state = useSelector((state) => state);
