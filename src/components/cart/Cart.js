@@ -12,6 +12,7 @@ const Cart = () => {
   const cartitems = useSelector((state) => state.cart.products);
   console.log(cartitems);
   const [totalPrice, setTotalPrice] = useState("");
+  const [payNow , setPayNow] = useState(false);
 
   useEffect(() => {
     let Total = 0;
