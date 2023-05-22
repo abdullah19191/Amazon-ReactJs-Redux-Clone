@@ -6,10 +6,13 @@ import Option from "./Option";
 import RightAdds from "./RightAdds";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ToastContainer,toast } from 'react-toastify';
 
 const Cart = () => {
   const dispatch = useDispatch();
   const cartitems = useSelector((state) => state.cart.products);
+  const userInfo = useSelector((state) => state.cart.userinfo);
+  console.log( userInfo);
   console.log(cartitems);
   const [totalPrice, setTotalPrice] = useState("");
   const [payNow , setPayNow] = useState(false);
@@ -21,6 +24,14 @@ const Cart = () => {
       return setTotalPrice(Total.toFixed(2));
     });
   }, [cartitems]);
+
+  const handleCheckout=() => {
+    if(userInfo){
+      setPayNow(true)
+    }else{
+      toast.error("Please sign in before proceeding to Checkout")
+    }
+  }
   return (
     <div className="w-full h-auto mb-9  relative top-16">
       {cartitems.length > 0 ? (
@@ -87,8 +98,8 @@ const Cart = () => {
               </h3>
             </div>
           </div>
-          <div className="md:w-auto w-full">
-            <RightAdds price={totalPrice} />
+          <div className="md:w-auto w-full ">
+            <RightAdds price={totalPrice} ch={handleCheckout}/>
           </div>
         </div>
       ) : (
@@ -123,6 +134,7 @@ const Cart = () => {
           </div>
         </motion.div>
       )}
+       
     </div>
   );
 };

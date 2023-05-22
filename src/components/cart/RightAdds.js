@@ -23,8 +23,8 @@ const RightAdds = (props) => {
           </h3>
         </div>
         <div className="flex justify-center w-full p-2">
-          <button className=" hover:bg-[#ec9615]  border-1 rounded-[10px] bg-[#FFD814] text-[#0F1111] drop-shadow-md  w-full font-[14px] py-2 ">
-            Process to buy
+          <button onClick={props.ch} className=" hover:bg-[#ec9615]  border-1 rounded-[10px] bg-[#FFD814] text-[#0F1111] drop-shadow-md  w-full font-[14px] py-2 ">
+            Proceed to Checkout  
           </button>
         </div>
         <div className=" p-2 border-2 border-solid m-3 hidden md:block">

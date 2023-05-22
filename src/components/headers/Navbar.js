@@ -12,6 +12,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import Logout from "@mui/icons-material/Logout";
 import { getAuth, signOut } from "firebase/auth";
 import { userSignOut } from "../../redux/slice/cartSlice";
+import { ToastContainer} from 'react-toastify';
 
 function Navbar() {
   const auth = getAuth();
@@ -31,6 +32,20 @@ function Navbar() {
     <div className=" sticky top-0 z-50 ">
       <div className="w-full bg-[#131921] text-white  px-4 py-3  flex-wrap justify-between mx-auto flex items-center">
         <div className="headerHover md:ml-2 ">
+        <div className="">
+        <ToastContainer 
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+        />
+        </div>
           <Link to="/">
             <img
               src="./img/amazon_PNG25.png"
@@ -116,6 +131,7 @@ function Navbar() {
        
       </div>
       <NavbarBottom />
+
     </div>
 
     // <header className="bg-[#131921] w-[100%] h-[60px] fixed z-10 shadow">

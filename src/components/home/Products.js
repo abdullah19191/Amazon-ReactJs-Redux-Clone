@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Rating from "material-ui-rating";
 import { addToCart } from "../../redux/slice/cartSlice";
-import { ToastContainer, toast } from 'react-toastify';
+import {  toast } from 'react-toastify';
   
 const Products = () => {
  const dispatch = useDispatch()
@@ -73,20 +73,7 @@ const Products = () => {
             </div>
           );
         })}
-        <div className="">
-        <ToastContainer 
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-        />
-        </div>
+       
     </div>
   );
 };

@@ -35,6 +35,7 @@ function MainComponent() {
         <Slider title="Upto 80% off" />
         {/* <Slider /> */}
       </div>
+      
     </div>
   );
 }
