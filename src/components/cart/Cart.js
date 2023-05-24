@@ -6,8 +6,8 @@ import Option from "./Option";
 import RightAdds from "./RightAdds";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ToastContainer,toast } from 'react-toastify';
-
+import { toast } from 'react-toastify';
+import StripeCheckout from 'react-stripe-checkout';
 const Cart = () => {
   const dispatch = useDispatch();
   const cartitems = useSelector((state) => state.cart.products);
@@ -99,7 +99,22 @@ const Cart = () => {
             </div>
           </div>
           <div className="md:w-auto w-full ">
-            <RightAdds price={totalPrice} ch={handleCheckout}/>
+            <RightAdds price={totalPrice} checkout={handleCheckout}/>
+            <button onClick={handleCheckout} className=" hover:bg-[#ec9615]  border-1 rounded-[10px] bg-[#FFD814] text-[#0F1111] drop-shadow-md  w-full font-[14px] py-2 ">
+            Proceed to Checkout  
+          </button>
+          {
+            payNow && (<div className=" w-full mt-6 flex items-center justify-center">
+              <StripeCheckout
+              stripeKey="pk_test_51NB7wXGkYoOA7HwlqtSOW3Fs7cBvi3rRyXmUBs3xF9EfHBY10Pwam3PXzILfuCGxqLvSS1BjMeLGUXIxcWncJfzg00ptnuQga3"
+              name="Amazon Cart"
+              amount={totalPrice * 100}
+              label="Pay to Amazon"
+              description={`Thankyou For Shopping,Your Payment Amount is $${totalPrice}`}
+              email={userInfo.email}
+              />
+            </div>)
+          }
           </div>
         </div>
       ) : (
