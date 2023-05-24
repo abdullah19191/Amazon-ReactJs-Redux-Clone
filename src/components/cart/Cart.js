@@ -8,6 +8,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import StripeCheckout from 'react-stripe-checkout';
+import axios from 'axios';
+
 const Cart = () => {
   const dispatch = useDispatch();
   const cartitems = useSelector((state) => state.cart.products);
@@ -32,6 +34,14 @@ const Cart = () => {
       toast.error("Please sign in before proceeding to Checkout")
     }
   }
+
+  const payment = async(token)=>{
+    await axios.post("http://localhost:8000/pay",{
+      amount:totalPrice * 100,
+      token:token,
+    })
+  }
+
   return (
     <div className="w-full h-auto mb-9  relative top-16">
       {cartitems.length > 0 ? (
@@ -110,6 +120,7 @@ const Cart = () => {
               name="Amazon Cart"
               amount={totalPrice * 100}
               label="Pay to Amazon"
+              token={payment}
               description={`Thankyou For Shopping,Your Payment Amount is $${totalPrice}`}
               email={userInfo.email}
               />
