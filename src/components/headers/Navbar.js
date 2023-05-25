@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Badge from "@mui/material/Badge";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
@@ -15,6 +15,11 @@ import { userSignOut } from "../../redux/slice/cartSlice";
 import { ToastContainer} from 'react-toastify';
 
 function Navbar() {
+  const [term,setTerm] = useState("")
+  const submitSearch = (e) =>{
+     e.preventDefault()
+     console.log(term)
+  }
   const auth = getAuth();
   const dispatch = useDispatch()
   const cartitems = useSelector((state) => state.cart.products);
@@ -73,8 +78,11 @@ function Navbar() {
           <input
             type="text"
             className="flex flex-grow outline-none border-1  text-base h-full text-blue-900 px-2"
+            value={term}
+            placeholder="Search Products"
+            onChange={(e)=>setTerm(e.target.value)}
           />
-          <span className=" bg-[#febd69] items-center flex h-full w-12 justify-center text-blue-900 hover:bg-orange-400 duration-300 rounded-tr-md rounded-br-md">
+          <span onClick={submitSearch} className=" bg-[#febd69] items-center flex h-full w-12 justify-center text-blue-900 hover:bg-orange-400 duration-300 rounded-tr-md rounded-br-md">
             {" "}
             <SearchIcon />
           </span>
