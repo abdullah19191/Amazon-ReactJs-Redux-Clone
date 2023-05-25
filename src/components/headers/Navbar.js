@@ -15,7 +15,8 @@ import { userSignOut } from "../../redux/slice/cartSlice";
 import { ToastContainer} from 'react-toastify';
 
 function Navbar() {
-  const [term,setTerm] = useState("")
+   const [term,setTerm] = useState("")
+  const [search, setSearch] = useState("");
   const submitSearch = (e) =>{
      e.preventDefault()
      console.log(term)
@@ -24,6 +25,19 @@ function Navbar() {
   const dispatch = useDispatch()
   const cartitems = useSelector((state) => state.cart.products);
   const userInfo = useSelector((state) => state.cart.userinfo);
+  const products = useSelector((state) => state);
+  console.log("PR ho ma sala", products.product.data);
+  
+
+  // const filteredProducts = products.product.data.filter((product) => {
+  //   if (
+  //     product.tags.toLowerCase().includes(search) ||
+  //     product.title.toLowerCase().includes(search) ||
+  //     product.category.toLowerCase().includes(search)
+  //   ) {
+  //     return product;
+  //   }
+  // });
   console.log(cartitems);
   console.log(userInfo);
   const handlLogout=()=>{
@@ -80,7 +94,7 @@ function Navbar() {
             className="flex flex-grow outline-none border-1  text-base h-full text-blue-900 px-2"
             value={term}
             placeholder="Search Products"
-            onChange={(e)=>setTerm(e.target.value)}
+            onChange={(e)=>setSearch(e.target.value)}
           />
           <span onClick={submitSearch} className=" bg-[#febd69] items-center flex h-full w-12 justify-center text-blue-900 hover:bg-orange-400 duration-300 rounded-tr-md rounded-br-md">
             {" "}

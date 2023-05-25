@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { fetchProducts } from "../../redux/slice/productslice";
 
 import { addToCart } from "../../redux/slice/cartSlice";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.

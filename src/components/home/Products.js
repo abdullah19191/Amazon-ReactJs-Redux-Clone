@@ -8,8 +8,8 @@ import {  toast } from 'react-toastify';
 const Products = () => {
  const dispatch = useDispatch()
   const state = useSelector((state) => state);
-  console.log("State", state.product.data);
-
+  console.log("State ho ma sala", state.product.data);
+  
   if (state.product.isLoading) {
     return (
       <div className="flex items-center justify-center h-screen text-xl">
